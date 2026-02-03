@@ -16,11 +16,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { Button } from "../components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-} from "../components/ui/card";
+import { Card, CardContent, CardHeader } from "../components/ui/card";
 import { Badge } from "../components/ui/badge";
 import { useState, useEffect } from "react";
 
@@ -28,9 +24,7 @@ interface ServicesPageProps {
   onNavigate: (page: string) => void;
 }
 
-export function ServicesPage({
-  onNavigate,
-}: ServicesPageProps) {
+export function ServicesPage({ onNavigate }: ServicesPageProps) {
   const services = [
     {
       icon: Sparkles,
@@ -46,8 +40,7 @@ export function ServicesPage({
         "Eco-friendly detergents available",
         "Minimum 3kg order",
       ],
-      image:
-        "https://www.sourceoffabric.com/wp-content/uploads/2024/09/Woman-giving-away-washed-and-folded-clothing-1024x683.jpg",
+      image: "/public/service/washfold.jpg",
     },
     {
       icon: Shirt,
@@ -63,8 +56,7 @@ export function ServicesPage({
         "Stain treatment included",
         "Quality inspection before pressing",
       ],
-      image:
-        "https://img.freepik.com/free-photo/unrecognizable-man-ironing-shirts-laundry-home_1098-17141.jpg?semt=ais_hybrid&w=740&q=80",
+      image: "/public/service/washpress.jpg",
     },
     {
       icon: Wind,
@@ -80,8 +72,7 @@ export function ServicesPage({
         "Stain removal specialists",
         "Garment protection and inspection",
       ],
-      image:
-        "https://cdn.shopify.com/s/files/1/0199/4862/articles/What_Clothes_Can_Be_Dry_Cleaned.jpg?v=1607954690",
+      image: "/public/service/dryclean.webp",
     },
     {
       icon: Leaf,
@@ -97,8 +88,7 @@ export function ServicesPage({
         "Effective for most 'dry clean only' items",
         "No harsh chemicals",
       ],
-      image:
-        "https://i.dailymail.co.uk/1s/2020/03/11/00/25810362-8097829-image-a-2_1583886514593.jpg",
+      image: "/public/service/wetclean.jpg",
     },
     {
       icon: Package,
@@ -114,8 +104,7 @@ export function ServicesPage({
         "Cushion covers",
         "Special handling for large items",
       ],
-      image:
-        "https://homepluscleaning.com/media/images/How-to-Clean-Curtains-and-Drapes.jpg",
+      image: "/public/service/specialtyitems.jpg",
     },
     {
       icon: Truck,
@@ -131,8 +120,7 @@ export function ServicesPage({
         "SMS notifications",
         "Contactless service available",
       ],
-      image:
-        "https://media.istockphoto.com/id/1132394829/photo/woman-delivering-dry-cleaned-clothes.jpg?s=612x612&w=0&k=20&c=rHX8lZdSxU94NfutMygqJaxCDSYEVHX2WeLyLrG2zK8=",
+      image: "/public/service/pickup-delivery.jpg",
     },
     {
       icon: Zap,
@@ -148,8 +136,7 @@ export function ServicesPage({
         "Perfect for emergencies",
         "Available for most services",
       ],
-      image:
-        "https://pattayalaundryexpress.com/wp-content/uploads/2025/07/Laundry-1-3.png",
+      image: "/public/service/express-service.png",
     },
     {
       icon: Building2,
@@ -165,8 +152,7 @@ export function ServicesPage({
         "Reliable daily/weekly pickups",
         "Quality guarantees",
       ],
-      image:
-        "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=583,fit=crop/d95gRLJnw1skxk4B/generated/generated-mP4QqqoMwKiXLDNG.png",
+      image: "/public/service/b2b.jpg",
     },
   ];
 
@@ -361,8 +347,7 @@ export function ServicesPage({
             <h1
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6"
               style={{
-                animation:
-                  "fadeInUp 0.8s ease-out 0.2s backwards",
+                animation: "fadeInUp 0.8s ease-out 0.2s backwards",
               }}
             >
               Our Services
@@ -370,13 +355,12 @@ export function ServicesPage({
             <p
               className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed"
               style={{
-                animation:
-                  "fadeInUp 0.8s ease-out 0.4s backwards",
+                animation: "fadeInUp 0.8s ease-out 0.4s backwards",
               }}
             >
-              Complete laundry and dry cleaning solutions for
-              every need. From everyday wash & fold to specialty
-              dry cleaning, we've got you covered.
+              Complete laundry and dry cleaning solutions for every need. From
+              everyday wash & fold to specialty dry cleaning, we've got you
+              covered.
             </p>
           </div>
         </div>
@@ -447,9 +431,7 @@ export function ServicesPage({
                       <div className="h-full bg-gray-200 rounded-full overflow-hidden">
                         <div
                           className={`h-full bg-gradient-to-r from-secondary via-primary to-secondary rounded-full transition-all duration-700 ease-in-out ${
-                            index < currentService
-                              ? "w-full"
-                              : "w-0"
+                            index < currentService ? "w-full" : "w-0"
                           }`}
                         />
                       </div>
@@ -469,11 +451,8 @@ export function ServicesPage({
                   <div className="flex items-center space-x-3 sm:space-x-4 mb-4 sm:mb-6">
                     <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center text-white shadow-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                       {(() => {
-                        const Icon =
-                          services[currentService].icon;
-                        return (
-                          <Icon className="w-7 h-7 sm:w-9 sm:h-9" />
-                        );
+                        const Icon = services[currentService].icon;
+                        return <Icon className="w-7 h-7 sm:w-9 sm:h-9" />;
                       })()}
                     </div>
                     <Badge
@@ -495,19 +474,17 @@ export function ServicesPage({
                   </p>
 
                   <div className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
-                    {services[currentService].benefits.map(
-                      (benefit, idx) => (
-                        <div
-                          key={idx}
-                          className="flex items-start space-x-2 sm:space-x-3 p-2 sm:p-3 rounded-lg hover:bg-secondary/5 transition-colors duration-200"
-                        >
-                          <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-secondary flex-shrink-0 mt-0.5 sm:mt-1" />
-                          <span className="text-sm sm:text-base text-gray-700">
-                            {benefit}
-                          </span>
-                        </div>
-                      ),
-                    )}
+                    {services[currentService].benefits.map((benefit, idx) => (
+                      <div
+                        key={idx}
+                        className="flex items-start space-x-2 sm:space-x-3 p-2 sm:p-3 rounded-lg hover:bg-secondary/5 transition-colors duration-200"
+                      >
+                        <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-secondary flex-shrink-0 mt-0.5 sm:mt-1" />
+                        <span className="text-sm sm:text-base text-gray-700">
+                          {benefit}
+                        </span>
+                      </div>
+                    ))}
                   </div>
 
                   <Button
@@ -540,9 +517,7 @@ export function ServicesPage({
                   className="disabled:opacity-30 border-2 border-primary/20 hover:border-primary hover:bg-primary/5 transition-all duration-300 px-3 sm:px-4"
                 >
                   <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2" />
-                  <span className="hidden sm:inline">
-                    Previous
-                  </span>
+                  <span className="hidden sm:inline">Previous</span>
                 </Button>
 
                 <div className="text-xs sm:text-sm text-gray-500 font-medium bg-gray-50 px-3 sm:px-4 py-2 rounded-full whitespace-nowrap">
@@ -553,9 +528,7 @@ export function ServicesPage({
                   variant="default"
                   size="lg"
                   onClick={handleNextService}
-                  disabled={
-                    currentService === services.length - 1
-                  }
+                  disabled={currentService === services.length - 1}
                   className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 disabled:opacity-30 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 px-3 sm:px-4"
                 >
                   <span className="hidden sm:inline">Next</span>
@@ -585,8 +558,7 @@ export function ServicesPage({
             <h2
               className="text-4xl font-bold text-gray-900 mb-6"
               style={{
-                animation:
-                  "fadeInUp 0.8s ease-out 0.2s backwards",
+                animation: "fadeInUp 0.8s ease-out 0.2s backwards",
               }}
             >
               Transparent Pricing
@@ -594,12 +566,11 @@ export function ServicesPage({
             <p
               className="text-xl text-gray-600 mb-8"
               style={{
-                animation:
-                  "fadeInUp 0.8s ease-out 0.4s backwards",
+                animation: "fadeInUp 0.8s ease-out 0.4s backwards",
               }}
             >
-              No hidden fees, no surprises. Just honest pricing
-              for premium laundry services.
+              No hidden fees, no surprises. Just honest pricing for premium
+              laundry services.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Badge className="bg-secondary/20 text-secondary border-secondary/30 text-sm py-2 px-4">
@@ -638,14 +609,11 @@ export function ServicesPage({
                 >
                   <tab.icon className="w-5 h-5" />
                   <span>{tab.name}</span>
-                  {tab.badge &&
-                    activeStandardTab === tab.id && (
-                      <Badge
-                        className={`ml-2 ${tab.badgeColor} text-xs`}
-                      >
-                        {tab.badge}
-                      </Badge>
-                    )}
+                  {tab.badge && activeStandardTab === tab.id && (
+                    <Badge className={`ml-2 ${tab.badgeColor} text-xs`}>
+                      {tab.badge}
+                    </Badge>
+                  )}
                 </button>
               ))}
             </div>
@@ -761,9 +729,7 @@ export function ServicesPage({
                   <tab.icon className="w-5 h-5" />
                   <span>{tab.name}</span>
                   {tab.badge && activeSpecialTab === tab.id && (
-                    <Badge
-                      className={`ml-2 ${tab.badgeColor} text-xs`}
-                    >
+                    <Badge className={`ml-2 ${tab.badgeColor} text-xs`}>
                       {tab.badge}
                     </Badge>
                   )}
@@ -832,8 +798,7 @@ export function ServicesPage({
                                   {item.price}
                                 </p>
                                 <p className="text-xs sm:text-sm text-gray-600">
-                                  Additional charge on base
-                                  service price
+                                  Additional charge on base service price
                                 </p>
                               </div>
                             ))}
@@ -906,18 +871,16 @@ export function ServicesPage({
           <p
             className="text-xl mb-8 text-white/90"
             style={{
-              animation:
-                "fadeInUp 0.8s ease-out 0.2s backwards",
+              animation: "fadeInUp 0.8s ease-out 0.2s backwards",
             }}
           >
-            Schedule your first pickup and discover why
-            thousands of customers trust HelloWash.
+            Schedule your first pickup and discover why thousands of customers
+            trust HelloWash.
           </p>
           <div
             className="flex flex-col sm:flex-row gap-4 justify-center"
             style={{
-              animation:
-                "fadeInUp 0.8s ease-out 0.4s backwards",
+              animation: "fadeInUp 0.8s ease-out 0.4s backwards",
             }}
           >
             <Button
