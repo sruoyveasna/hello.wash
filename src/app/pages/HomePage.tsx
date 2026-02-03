@@ -61,8 +61,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
       titleHighlight: "Done Right",
       description:
         "Fast, reliable, eco-friendly garment care powered by our central laundry factory. Pickup & delivery across Phnom Penh.",
-      image:
-        "https://media.istockphoto.com/id/1224409503/photo/clean-garment-neatly-folded-after-laundry-over-bright-background.jpg?s=612x612&w=0&k=20&c=iLsKvD5bZZSpvBEkUfxAnYcPMvHDZYRa200PukmOYMY=",
+      image: "/home/dryclean.jpg",
       badges: [
         {
           icon: Leaf,
@@ -87,8 +86,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
       titleHighlight: "60 Seconds",
       description:
         "Schedule pickups, track orders, and manage your laundry from your smartphone. Available on iOS and Android.",
-      image:
-        "https://enatega.com/wp-content/uploads/2025/02/Fresh-Clean-Laundry-1024x646.webp",
+      image: "/home/fastorder.webp",
       badges: [
         {
           icon: Smartphone,
@@ -108,17 +106,16 @@ export function HomePage({ onNavigate }: HomePageProps) {
       ],
     },
     {
-      badge: "Free Pickup & Delivery Service",
+      badge: "Convenient Pickup & Delivery Service",
       title: "Door-to-Door",
       titleHighlight: "Convenience",
       description:
-        "We collect your laundry and deliver it back fresh and clean. Free pickup & delivery on all orders across Phnom Penh.",
-      image:
-        "https://images.squarespace-cdn.com/content/v1/62b5f5497d9a067877ee3d3b/58fcc3a2-6c2f-4d40-bb30-709b72c90946/14.jpeg",
+        "We collect your laundry and deliver it back fresh and clean. Affordable pickup & delivery on all orders across Phnom Penh.",
+      image: "/home/doortodoor.webp",
       badges: [
         {
           icon: Truck,
-          text: "Free Delivery",
+          text: "Pickup & Delivery",
           color: "text-secondary",
         },
         {
@@ -139,8 +136,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
       titleHighlight: "Cleaning",
       description:
         "State-of-the-art equipment and rigorous quality control ensure every garment receives premium care at our central facility.",
-      image:
-        "https://lirp.cdn-website.com/0e8ebc1b/dms3rep/multi/opt/baytowel-156-640w.jpg",
+      image: "/home/industrialclean.webp",
       badges: [
         {
           icon: Award,
@@ -177,24 +173,21 @@ export function HomePage({ onNavigate }: HomePageProps) {
       title: "Garment Tagging & Sorting",
       description:
         "Every item is individually tagged and sorted by fabric type and color for optimal care.",
-      image:
-        "https://huayuansh.com/wp-content/uploads/2024/09/RFID-Technology-for-Industrial-Laundry.webp",
+      image: "/home/industrialclean.webp",
     },
     {
       icon: Sparkles,
       title: "Fabric-Specific Programs",
       description:
         "Specialized washing cycles and temperatures for different fabric types ensure the best results.",
-      image:
-        "https://aaravelectronics.com/wp-content/uploads/2025/12/FHP1412Z3O10-600x600.jpg",
+      image: "/home/industrialclean.webp",
     },
     {
       icon: ShieldCheck,
       title: "Final Inspection & Packaging",
       description:
         "Quality check and careful packaging before delivery to ensure perfection.",
-      image:
-        "https://greatamericandrycleaners.com/wp-content/uploads/2024/08/great-american-Pickup-and-Delivery-blog.jpg",
+      image: "/home/doortodoor.webp",
     },
     // {
     //   icon: Leaf,
@@ -259,7 +252,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
       icon: Truck,
       title: "Pickup & Delivery",
       description: "Convenient door-to-door service",
-      price: "Cheap",
+      price: "Affordable",
     },
     {
       icon: Zap,
@@ -541,7 +534,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
             {services.map((service, index) => {
               // Define which service is "Most Popular" (index 0 = Wash & Fold)
               const isFeatured = index === 0;
@@ -563,7 +556,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
                     isFeatured
                       ? "ring-2 ring-accent shadow-xl md:scale-105"
                       : ""
-                  }`}
+                  } ${index >= 3 ? "hidden lg:flex" : ""}`}
                   onClick={() => onNavigate("services")}
                 >
                   {/* Most Popular Badge */}
@@ -576,60 +569,66 @@ export function HomePage({ onNavigate }: HomePageProps) {
                   {/* Hover Gradient Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
-                  <CardContent className="p-3 sm:p-4 md:p-6 relative z-10">
-                    {/* Icon with Gradient Background */}
-                    <div
-                      className={`w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-gradient-to-br ${gradients[index % gradients.length]} rounded-lg sm:rounded-xl flex items-center justify-center mb-2 sm:mb-3 md:mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg`}
-                    >
-                      <service.icon className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-white" />
-                    </div>
-
-                    <h3 className="text-xs sm:text-sm md:text-lg font-bold mb-1.5 sm:mb-2 group-hover:text-primary transition-colors">
-                      {service.title}
-                    </h3>
-
-                    <p className="text-[11px] sm:text-xs md:text-sm text-gray-600 mb-2 sm:mb-3 md:mb-4 leading-snug sm:leading-relaxed">
-                      {service.description}
-                    </p>
-
-                    {/* Mini Feature Bullets */}
-                    <div className="space-y-1 sm:space-y-1.5 mb-2 sm:mb-3 md:mb-4">
-                      <div className="flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs text-gray-600">
-                        <CheckCircle2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-secondary flex-shrink-0" />
-                        <span>24-48hr turnaround</span>
+                  <CardContent className="p-4 md:p-6 relative z-10">
+                    {/* Mobile: Horizontal Layout, Desktop: Vertical */}
+                    <div className="flex lg:block gap-3 lg:gap-0">
+                      {/* Icon with Gradient Background */}
+                      <div
+                        className={`w-14 h-14 lg:w-14 lg:h-14 bg-gradient-to-br ${gradients[index % gradients.length]} rounded-lg lg:rounded-xl flex items-center justify-center lg:mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg flex-shrink-0`}
+                      >
+                        <service.icon className="w-7 h-7 lg:w-7 lg:h-7 text-white" />
                       </div>
-                      <div className="flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs text-gray-600">
-                        <CheckCircle2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-secondary flex-shrink-0" />
-                        <span>Free pickup & delivery</span>
-                      </div>
-                    </div>
 
-                    {/* Price with Starting From */}
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <p className="text-[10px] sm:text-xs text-gray-500">
-                          Starting from
+                      {/* Content Container */}
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-sm md:text-base lg:text-lg font-bold mb-1.5 lg:mb-2 group-hover:text-primary transition-colors">
+                          {service.title}
+                        </h3>
+
+                        <p className="text-xs md:text-sm text-gray-600 mb-2 lg:mb-4 leading-relaxed line-clamp-2 lg:line-clamp-none">
+                          {service.description}
                         </p>
-                        <p className="font-bold text-sm sm:text-base md:text-lg lg:text-xl text-primary">
-                          {service.price}
-                        </p>
-                      </div>
 
-                      {/* Learn More Arrow - appears on hover */}
-                      <div className="opacity-0 group-hover:opacity-100 transform translate-x-[-10px] group-hover:translate-x-0 transition-all duration-300">
-                        <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+                        {/* Mini Feature Bullets */}
+                        <div className="space-y-1 lg:space-y-1.5 mb-2 lg:mb-4">
+                          <div className="flex items-center gap-2 text-xs text-gray-600">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-secondary flex-shrink-0" />
+                            <span>24-48hr turnaround</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-xs text-gray-600">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-secondary flex-shrink-0" />
+                            <span>Pickup & delivery available</span>
+                          </div>
+                        </div>
+
+                        {/* Price with Starting From */}
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <p className="text-[10px] md:text-xs text-gray-500">
+                              Starting from
+                            </p>
+                            <p className="font-bold text-base md:text-lg lg:text-xl text-primary">
+                              {service.price}
+                            </p>
+                          </div>
+
+                          {/* Learn More Arrow - appears on hover */}
+                          <div className="opacity-0 group-hover:opacity-100 transform translate-x-[-10px] group-hover:translate-x-0 transition-all duration-300">
+                            <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-primary" />
+                          </div>
+                        </div>
+
+                        {/* Quick Action Button - appears on hover */}
+                        <Button
+                          className="w-full mt-3 lg:mt-4 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 text-xs md:text-sm"
+                          variant={
+                            isFeatured ? "default" : "outline"
+                          }
+                        >
+                          Book Now
+                        </Button>
                       </div>
                     </div>
-
-                    {/* Quick Action Button - appears on hover */}
-                    <Button
-                      className="w-full mt-2 sm:mt-3 md:mt-4 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 text-xs sm:text-sm"
-                      variant={
-                        isFeatured ? "default" : "outline"
-                      }
-                    >
-                      Book Now
-                    </Button>
                   </CardContent>
                 </Card>
               );
@@ -827,7 +826,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
       <section className="pt-12 md:pt-16 pb-0 bg-gradient-to-br from-primary to-primary/90 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <div className="min-h-[400px] md:min-h-[620px]">
+            <div className="order-2 lg:order-none">
               <h2 className="text-2xl md:text-4xl font-bold mb-6">
                 Factory-Level Quality Control
               </h2>
@@ -838,30 +837,37 @@ export function HomePage({ onNavigate }: HomePageProps) {
                 premium care.
               </p>
 
-              <div className="space-y-4">
+              <div className="flex flex-col gap-4 min-h-[400px] md:min-h-[500px]">
                 {qualityFeatures.map((feature, index) => (
                   <button
                     key={index}
                     onClick={() => setActiveQuality(index)}
-                    className={`w-full text-left flex items-start space-x-4 transition-all duration-500 ease-in-out rounded-xl px-4 py-3 ${
+                    className={`w-full text-left flex items-start space-x-4 transition-all duration-700 ease-out rounded-xl px-4 py-3 ${
                       index === activeQuality
-                        ? "opacity-100 bg-white/10 backdrop-blur-sm"
-                        : "opacity-70 hover:opacity-90 bg-transparent"
+                        ? "opacity-100 bg-white/10 backdrop-blur-sm order-[-1] lg:order-none"
+                        : "opacity-70 hover:opacity-90 bg-transparent order-1 lg:order-none"
                     }`}
+                    style={{ 
+                      transitionProperty: 'all, order, opacity, background-color, transform',
+                      transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
+                    }}
                   >
-                    <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0 transition-transform duration-700 ease-out">
                       <feature.icon className="w-6 h-6" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h4 className="font-bold mb-1">
+                      <h4 className="font-bold mb-1 transition-all duration-700 ease-out">
                         {feature.title}
                       </h4>
                       <div
-                        className={`overflow-hidden transition-all duration-1000 ease-in-out ${
+                        className={`overflow-hidden transition-all duration-700 ease-out ${
                           index === activeQuality
                             ? "max-h-20 opacity-100 mt-1"
                             : "max-h-0 opacity-0 mt-0"
                         }`}
+                        style={{
+                          transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
+                        }}
                       >
                         <p className="text-white/80 text-sm leading-relaxed">
                           {feature.description}
@@ -873,7 +879,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
               </div>
             </div>
 
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl relative">
+            <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl relative order-1 lg:order-none">
               {qualityFeatures.map((feature, index) => (
                 <img
                   key={index}
@@ -906,30 +912,37 @@ export function HomePage({ onNavigate }: HomePageProps) {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto">
             {/* Card 1 - Wash & Fold */}
-            <Card className="text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-t-4 border-t-secondary relative overflow-hidden group">
-              <CardContent className="p-8 relative z-10">
-                <div className="w-16 h-16 bg-gradient-to-br from-secondary/20 to-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <Sparkles className="w-8 h-8 text-secondary" />
+            <Card className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-t-4 border-t-secondary relative overflow-hidden group">
+              <CardContent className="p-4 md:p-8 relative z-10">
+                {/* Mobile: Horizontal Layout */}
+                <div className="flex md:block gap-3 md:gap-0 mb-3 md:mb-0">
+                  <div className="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-secondary/20 to-secondary/10 rounded-lg md:rounded-2xl flex items-center justify-center md:mx-auto md:mb-4 group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+                    <Sparkles className="w-7 h-7 md:w-8 md:h-8 text-secondary" />
+                  </div>
+                  <div className="flex-1 md:text-center">
+                    <h3 className="text-base md:text-xl font-bold mb-1 md:mb-3 text-gray-900">
+                      Wash & Fold
+                    </h3>
+                    <div className="flex items-baseline gap-1 md:block">
+                      <div className="text-2xl md:text-4xl font-bold text-secondary">
+                        $1.00
+                      </div>
+                      <p className="text-xs md:text-sm text-gray-500 md:mb-4">
+                        per kg
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <h3 className="text-lg md:text-xl font-bold mb-3 text-gray-900">
-                  Wash & Fold
-                </h3>
-                <div className="text-3xl md:text-4xl font-bold text-secondary mb-1">
-                  $1.00
-                </div>
-                <p className="text-sm text-gray-500 mb-4">
-                  per kilogram
-                </p>
 
-                <div className="space-y-2 text-sm text-gray-600">
-                  <div className="flex items-center justify-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-secondary" />
+                <div className="space-y-1.5 md:space-y-2 text-xs md:text-sm text-gray-600">
+                  <div className="flex items-center md:justify-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 md:w-4 md:h-4 text-secondary flex-shrink-0" />
                     <span>Fresh & folded</span>
                   </div>
-                  <div className="flex items-center justify-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-secondary" />
+                  <div className="flex items-center md:justify-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 md:w-4 md:h-4 text-secondary flex-shrink-0" />
                     <span>24-hour service</span>
                   </div>
                 </div>
@@ -938,37 +951,44 @@ export function HomePage({ onNavigate }: HomePageProps) {
             </Card>
 
             {/* Card 2 - Wash & Press (FEATURED) */}
-            <Card className="text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-3 border-t-4 border-t-accent relative overflow-hidden group shadow-lg md:scale-105">
+            <Card className="hover:shadow-2xl transition-all duration-300 hover:-translate-y-3 border-t-4 border-t-accent relative overflow-hidden group shadow-lg md:scale-105">
               {/* Most Popular Badge */}
-              <div className="absolute top-0 right-0 bg-accent text-accent-foreground text-xs font-bold px-3 py-1 rounded-bl-lg z-20">
+              <div className="absolute top-0 right-0 bg-accent text-accent-foreground text-[10px] md:text-xs font-bold px-2 md:px-3 py-0.5 md:py-1 rounded-bl-lg z-20">
                 MOST POPULAR
               </div>
 
-              <CardContent className="p-6 md:p-10 relative z-10">
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-accent to-accent/80 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
-                  <Shirt className="w-8 h-8 md:w-10 md:h-10 text-white" />
+              <CardContent className="p-4 md:p-10 relative z-10">
+                {/* Mobile: Horizontal Layout */}
+                <div className="flex md:block gap-3 md:gap-0 mb-3 md:mb-0">
+                  <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-accent to-accent/80 rounded-lg md:rounded-2xl flex items-center justify-center md:mx-auto md:mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg flex-shrink-0">
+                    <Shirt className="w-8 h-8 md:w-10 md:h-10 text-white" />
+                  </div>
+                  <div className="flex-1 md:text-center">
+                    <h3 className="text-lg md:text-2xl font-bold mb-1 md:mb-3 text-gray-900">
+                      Wash & Press
+                    </h3>
+                    <div className="flex items-baseline gap-1 md:block">
+                      <div className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-accent to-accent/80 bg-clip-text text-transparent">
+                        $0.75
+                      </div>
+                      <p className="text-xs md:text-sm text-gray-500 md:mb-4">
+                        per shirt
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold mb-3 text-gray-900">
-                  Wash & Press
-                </h3>
-                <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-accent to-accent/80 bg-clip-text text-transparent mb-1">
-                  $0.75
-                </div>
-                <p className="text-sm text-gray-500 mb-4">
-                  per shirt
-                </p>
 
-                <div className="space-y-2 text-sm text-gray-600">
-                  <div className="flex items-center justify-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-accent" />
+                <div className="space-y-1.5 md:space-y-2 text-xs md:text-sm text-gray-600">
+                  <div className="flex items-center md:justify-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 md:w-4 md:h-4 text-accent flex-shrink-0" />
                     <span>Professional press</span>
                   </div>
-                  <div className="flex items-center justify-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-accent" />
+                  <div className="flex items-center md:justify-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 md:w-4 md:h-4 text-accent flex-shrink-0" />
                     <span>Crisp & ready</span>
                   </div>
-                  <div className="flex items-center justify-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-accent" />
+                  <div className="flex items-center md:justify-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 md:w-4 md:h-4 text-accent flex-shrink-0" />
                     <span>Best value</span>
                   </div>
                 </div>
@@ -980,28 +1000,35 @@ export function HomePage({ onNavigate }: HomePageProps) {
             </Card>
 
             {/* Card 3 - Dry Clean */}
-            <Card className="text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-t-4 border-t-primary relative overflow-hidden group">
-              <CardContent className="p-8 relative z-10">
-                <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <Wind className="w-8 h-8 text-primary" />
+            <Card className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-t-4 border-t-primary relative overflow-hidden group">
+              <CardContent className="p-4 md:p-8 relative z-10">
+                {/* Mobile: Horizontal Layout */}
+                <div className="flex md:block gap-3 md:gap-0 mb-3 md:mb-0">
+                  <div className="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-primary/20 to-primary/10 rounded-lg md:rounded-2xl flex items-center justify-center md:mx-auto md:mb-4 group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+                    <Wind className="w-7 h-7 md:w-8 md:h-8 text-primary" />
+                  </div>
+                  <div className="flex-1 md:text-center">
+                    <h3 className="text-base md:text-xl font-bold mb-1 md:mb-3 text-gray-900">
+                      Dry Clean
+                    </h3>
+                    <div className="flex items-baseline gap-1 md:block">
+                      <div className="text-2xl md:text-4xl font-bold text-primary">
+                        $10.00
+                      </div>
+                      <p className="text-xs md:text-sm text-gray-500 md:mb-4">
+                        suit from
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <h3 className="text-lg md:text-xl font-bold mb-3 text-gray-900">
-                  Dry Clean
-                </h3>
-                <div className="text-3xl md:text-4xl font-bold text-primary mb-1">
-                  $10.00
-                </div>
-                <p className="text-sm text-gray-500 mb-4">
-                  suit starting from
-                </p>
 
-                <div className="space-y-2 text-sm text-gray-600">
-                  <div className="flex items-center justify-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-primary" />
+                <div className="space-y-1.5 md:space-y-2 text-xs md:text-sm text-gray-600">
+                  <div className="flex items-center md:justify-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary flex-shrink-0" />
                     <span>Delicate care</span>
                   </div>
-                  <div className="flex items-center justify-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-primary" />
+                  <div className="flex items-center md:justify-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary flex-shrink-0" />
                     <span>Expert handling</span>
                   </div>
                 </div>
@@ -1490,7 +1517,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
             <div className="relative group">
               <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl ring-4 ring-white/20 hover:ring-white/40 transition-all duration-300">
                 <img
-                  src="https://www.love2laundry.com/blog/wp-content/uploads/2025/12/our-eco-friendly-laundry-solutions-for-restaurants.webp"
+                  src="/home/hotel.webp"
                   alt="Hotel linens"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
@@ -1642,8 +1669,8 @@ export function HomePage({ onNavigate }: HomePageProps) {
             </Button>
 
             <p className="mt-4 text-sm text-white/80">
-              📞 Call us: +855 12 345 678 | 📧
-              franchise@hellowash.com
+              📞 Call us: 081 661 616 | 📧
+              franchise@hellowash.com.kh
             </p>
           </div>
         </div>
@@ -1714,7 +1741,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
                 variant="outline"
                 className="border-2 border-secondary text-secondary hover:bg-secondary hover:text-white transition-all duration-300"
               >
-                📞 Call: +855 12 345 678
+                📞 Call: 081 661 616
               </Button>
             </div>
           </div>

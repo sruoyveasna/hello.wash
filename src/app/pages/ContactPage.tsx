@@ -304,7 +304,7 @@ export function ContactPage({ onNavigate }: ContactPageProps) {
               Service Coverage Zones
             </h2>
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8">
-              Free pickup & delivery in all listed areas
+              Pickup & delivery available in all service areas
             </p>
 
             {/* Search Box */}
@@ -380,7 +380,7 @@ export function ContactPage({ onNavigate }: ContactPageProps) {
             <Badge className="mb-2 lg:mb-4 bg-primary/10 text-primary border-primary/20 text-xs lg:text-sm">
               📍 Visit Us
             </Badge>
-            <h2 className="text-xl lg:text-4xl font-bold text-gray-900 mb-2 lg:mb-4">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-2 lg:mb-4">
               Our Locations
             </h2>
             <p className="text-sm lg:text-xl text-gray-600">

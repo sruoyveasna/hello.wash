@@ -308,7 +308,7 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
               <div className="space-y-3 sm:space-y-4">
                 <div className="aspect-square rounded-xl sm:rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 group relative">
                   <img
-                    src="https://img.lottehotel.com/cms/asset/2025/01/31/3023/240627-7-1440-fac-L7HND.webp"
+                    src="/about/modern-eqitment.webp"
                     alt="Modern Facility"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
@@ -320,13 +320,13 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
                 </div>
                 <div className="aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 group relative">
                   <img
-                    src="https://media.istockphoto.com/id/2158161980/photo/smiling-woman-receiving-clean-clothes-on-a-hanger-in-a-plastic-bag-from-a-delivery-man-at-the.jpg?s=612x612&w=0&k=20&c=N3tZ4-qvsmWkS1DwIr_Sh5V7JzgjvIzrPxdotIing-c="
+                    src="/about/free-delevery.jpg"
                     alt="Delivery Service"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-secondary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3 sm:p-4">
                     <p className="text-white font-semibold text-xs sm:text-sm">
-                      Free Delivery
+                      Pickup & Delivery
                     </p>
                   </div>
                 </div>
@@ -334,7 +334,7 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
               <div className="space-y-3 sm:space-y-4 pt-6 sm:pt-8">
                 <div className="aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 group relative">
                   <img
-                    src="https://www.shutterstock.com/image-photo/hospital-hygiene-workers-sorting-dirty-260nw-2568537823.jpg"
+                    src="/about/expert-team.webp"
                     alt="Professional Team"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
@@ -346,7 +346,7 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
                 </div>
                 <div className="aspect-square rounded-xl sm:rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 group relative">
                   <img
-                    src="https://kingspinlaundry.com/wp-content/uploads/2024/01/Is-Hotel-Laundry-Service-the-Key-to-Guest-Happiness.jpg"
+                    src="/about/customer-satified.jpg"
                     alt="Happy Customers"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
@@ -482,7 +482,7 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
 
             <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 relative group">
               <img
-                src="https://i0.wp.com/kbcambodia.com/wp-content/uploads/2016/12/MODERN-LAUNDRY-2.jpg?fit=960%2C642&ssl=1"
+                src="/about/modern-eqitment.webp"
                 alt="Our facility"
                 className="w-full h-full object-cover"
               />
@@ -551,24 +551,29 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
             {values.map((value, index) => (
               <Card
                 key={index}
-                className="border-2 border-gray-200 hover:border-primary/30 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden"
+                className={`border-2 border-gray-200 hover:border-primary/30 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden ${index >= 3 ? "hidden lg:flex" : ""}`}
               >
-                <CardContent className="p-3 sm:p-4 md:p-6 relative z-10">
-                  <div
-                    className={`w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-gradient-to-br ${value.color} rounded-lg sm:rounded-xl flex items-center justify-center mb-2 sm:mb-3 md:mb-4 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg`}
-                  >
-                    <value.icon className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-white" />
+                <CardContent className="p-4 md:p-6 relative z-10">
+                  {/* Mobile: Horizontal Layout, Desktop: Vertical */}
+                  <div className="flex lg:block gap-3 lg:gap-0">
+                    <div
+                      className={`w-14 h-14 lg:w-14 lg:h-14 bg-gradient-to-br ${value.color} rounded-lg lg:rounded-xl flex items-center justify-center lg:mb-4 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg flex-shrink-0`}
+                    >
+                      <value.icon className="w-7 h-7 lg:w-7 lg:h-7 text-white" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-sm md:text-base lg:text-xl font-bold mb-1.5 lg:mb-3 text-gray-900">
+                        {value.title}
+                      </h3>
+                      <p className="text-xs md:text-sm lg:text-base text-gray-600 leading-relaxed">
+                        {value.description}
+                      </p>
+                    </div>
                   </div>
-                  <h3 className="text-xs sm:text-sm md:text-base lg:text-xl font-bold mb-1.5 sm:mb-2 md:mb-3 text-gray-900">
-                    {value.title}
-                  </h3>
-                  <p className="text-[11px] sm:text-xs md:text-sm lg:text-base text-gray-600 leading-snug sm:leading-relaxed">
-                    {value.description}
-                  </p>
                 </CardContent>
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </Card>
@@ -679,20 +684,27 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
         <div className="absolute top-0 left-0 w-64 h-64 bg-secondary/5 rounded-full blur-3xl"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-12">
-            <Badge className="mb-4 bg-secondary/10 text-secondary border-secondary/20">
+          <div className="text-center mb-8 md:mb-12">
+            <Badge className="mb-3 md:mb-4 bg-secondary/10 text-secondary border-secondary/20 text-xs sm:text-sm">
               🌱 Sustainability
             </Badge>
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
               Our Sustainability Approach
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto">
               Commitment to eco-friendly practices in everything
               we do
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Mobile Only: Intro Text */}
+          <p className="lg:hidden text-sm sm:text-base text-gray-700 mb-4 leading-relaxed">
+            We believe in doing business responsibly. Our
+            commitment to sustainability goes beyond words -
+            it's built into every aspect of our operations.
+          </p>
+
+          <div className="grid lg:grid-cols-2 gap-6 md:gap-12 items-center">
             {/* Left: Dynamic Image Display */}
             <div
               className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 group relative"
@@ -716,16 +728,16 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
 
               {/* Content Overlay */}
-              <div className="absolute inset-0 flex flex-col items-center justify-end p-8 text-center z-10">
+              <div className="absolute inset-0 flex flex-col items-center justify-end p-4 sm:p-6 md:p-8 text-center z-10">
                 {/* Icon Badge */}
                 <div
-                  className={`w-20 h-20 bg-gradient-to-br ${
+                  className={`w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-gradient-to-br ${
                     activeSustainability === 0
                       ? "from-secondary to-secondary/80"
                       : activeSustainability === 1
                         ? "from-primary to-primary/80"
                         : "from-accent to-accent/80"
-                  } rounded-2xl flex items-center justify-center mb-4 shadow-2xl backdrop-blur-sm border-2 border-white/20`}
+                  } rounded-xl md:rounded-2xl flex items-center justify-center mb-3 md:mb-4 shadow-2xl backdrop-blur-sm border-2 border-white/20`}
                   style={{
                     animation:
                       "scaleIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)",
@@ -736,14 +748,14 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
                       sustainabilityItems[activeSustainability]
                         .icon;
                     return (
-                      <Icon className="w-10 h-10 text-white" />
+                      <Icon className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 text-white" />
                     );
                   })()}
                 </div>
 
                 {/* Title */}
                 <h3
-                  className="text-2xl font-bold text-white mb-2"
+                  className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2"
                   style={{
                     animation:
                       "fadeInUp 0.6s ease-out 0.2s backwards",
@@ -757,7 +769,7 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
 
                 {/* Details */}
                 <p
-                  className="text-base text-white/90 max-w-md leading-relaxed"
+                  className="text-xs sm:text-sm md:text-base text-white/90 max-w-md leading-relaxed"
                   style={{
                     animation:
                       "fadeInUp 0.6s ease-out 0.3s backwards",
@@ -773,13 +785,13 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
 
             {/* Right: Interactive Tab List */}
             <div>
-              <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+              <p className="hidden lg:block text-sm sm:text-base md:text-lg text-gray-700 mb-4 md:mb-8 leading-relaxed">
                 We believe in doing business responsibly. Our
                 commitment to sustainability goes beyond words -
                 it's built into every aspect of our operations.
               </p>
 
-              <div className="space-y-4">
+              <div className="space-y-3 md:space-y-4">
                 {sustainabilityItems.map((item, index) => {
                   const isActive =
                     index === activeSustainability;
@@ -793,7 +805,7 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
                         isActive
                           ? item.hoverGradient
                           : item.bgGradient
-                      } p-5 rounded-xl transition-all duration-300 border ${
+                      } p-3 sm:p-4 md:p-5 rounded-xl transition-all duration-300 border ${
                         isActive
                           ? item.hoverBorderColor
                           : item.borderColor
@@ -813,7 +825,7 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
                       }`}
                     >
                       <div
-                        className={`w-12 h-12 bg-gradient-to-br ${
+                        className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br ${
                           item.color === "secondary"
                             ? "from-secondary to-secondary/80"
                             : item.color === "primary"
@@ -825,20 +837,20 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
                             : "group-hover:scale-110 group-hover:rotate-3"
                         } transition-all duration-300 shadow-md`}
                       >
-                        <item.icon className="w-6 h-6 text-white" />
+                        <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                       </div>
-                      <div className="flex-1">
-                        <div className="flex items-center justify-between mb-2">
-                          <h4 className="font-bold text-gray-900 text-lg">
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between mb-1 sm:mb-2">
+                          <h4 className="font-bold text-gray-900 text-sm sm:text-base md:text-lg">
                             {item.title}
                           </h4>
                         </div>
-                        <p className="text-gray-600 text-sm mb-2">
+                        <p className="text-gray-600 text-xs sm:text-sm mb-2">
                           {item.description}
                         </p>
                         {isActive && (
                           <p
-                            className="text-gray-700 text-sm mt-3 pt-3 border-t border-gray-200/50"
+                            className="text-gray-700 text-xs sm:text-sm mt-2 sm:mt-3 pt-2 sm:pt-3 border-t border-gray-200/50"
                             style={{
                               animation:
                                 "fadeInUp 0.4s ease-out",
@@ -854,7 +866,7 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
               </div>
 
               {/* Progress Indicator */}
-              <div className="mt-6 flex items-center gap-2">
+              <div className="mt-4 md:mt-6 flex items-center gap-2">
                 {sustainabilityItems.map((_, index) => (
                   <button
                     key={index}

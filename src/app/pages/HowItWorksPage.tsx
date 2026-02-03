@@ -688,8 +688,8 @@ export function HowItWorksPage({
               </h2>
               <p className="text-lg text-gray-600 mb-8">
                 We serve all major districts in Phnom Penh with
-                free pickup and delivery. No minimum order
-                required!
+                convenient pickup and delivery. Minimum 3kg order
+                for wash & fold service.
               </p>
 
               {/* Feature Cards */}
@@ -1193,10 +1193,10 @@ export function HowItWorksPage({
                   <Truck className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />
                 </div>
                 <h4 className="font-bold text-white text-base sm:text-lg mb-1 sm:mb-2">
-                  Free Delivery
+                  Affordable Delivery
                 </h4>
                 <p className="text-white/80 text-xs sm:text-sm">
-                  Pickup & delivery at no extra cost
+                  Convenient pickup & delivery service
                 </p>
               </div>
 

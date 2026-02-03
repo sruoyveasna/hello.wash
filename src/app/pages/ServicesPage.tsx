@@ -120,12 +120,12 @@ export function ServicesPage({
     {
       icon: Truck,
       title: "Pickup & Delivery",
-      price: "Free with minimum order",
+      price: "Affordable rates",
       turnaround: "Same day pickup",
       description:
         "Convenient door-to-door service. We pick up and deliver to your preferred location.",
       benefits: [
-        "Free for orders over $10",
+        "Affordable rates for all orders",
         "Flexible pickup times",
         "Real-time tracking via app",
         "SMS notifications",
@@ -229,9 +229,8 @@ export function ServicesPage({
       id: 0,
       name: "Wash & Fold",
       icon: Sparkles,
-      badge: "⭐ Most Popular",
-      badgeColor:
-        "bg-accent/20 text-accent-foreground border-accent/30",
+      badge: null,
+      badgeColor: "",
       headerColor: "from-primary to-primary/90",
       hoverColor: "border-primary/30",
       infoColor: "bg-blue-50 border-primary/10",
@@ -290,9 +289,8 @@ export function ServicesPage({
       id: 1,
       name: "Express Service",
       icon: Zap,
-      badge: "⚡ Rush Available",
-      badgeColor:
-        "bg-accent/20 text-accent-foreground border-accent/30",
+      badge: null,
+      badgeColor: "",
       headerColor: "from-accent/20 to-accent/10",
       hoverColor: "border-accent/50",
       infoColor: "bg-yellow-50 border-accent/30",
@@ -361,7 +359,7 @@ export function ServicesPage({
             </Badge>
 
             <h1
-              className="text-3xl sm:text-4xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6"
               style={{
                 animation:
                   "fadeInUp 0.8s ease-out 0.2s backwards",
@@ -486,7 +484,7 @@ export function ServicesPage({
                     </Badge>
                   </div>
 
-                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 text-gray-900">
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 text-gray-900 min-h-[4rem] sm:min-h-[4.5rem] lg:min-h-[5rem] flex items-center">
                     {services[currentService].title}
                   </h2>
                   <p className="text-lg sm:text-xl text-primary font-semibold mb-3 sm:mb-4">
@@ -606,7 +604,7 @@ export function ServicesPage({
             <div className="flex flex-wrap justify-center gap-4">
               <Badge className="bg-secondary/20 text-secondary border-secondary/30 text-sm py-2 px-4">
                 <CheckCircle2 className="w-4 h-4 mr-2" />
-                Free Pickup & Delivery (min. order)
+                Pickup & Delivery Available
               </Badge>
               <Badge className="bg-accent/20 text-accent-foreground border-accent/30 text-sm py-2 px-4">
                 <CheckCircle2 className="w-4 h-4 mr-2" />
@@ -664,20 +662,20 @@ export function ServicesPage({
                     }}
                   >
                     <CardHeader
-                      className={`bg-gradient-to-br ${tab.headerColor} text-white rounded-t-lg p-6 relative overflow-hidden`}
+                      className={`bg-gradient-to-br ${tab.headerColor} text-white rounded-t-lg p-4 sm:p-6 relative overflow-hidden`}
                     >
                       <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       <div className="flex items-center justify-between relative z-10">
                         <div>
-                          <div className="flex items-center gap-3 mb-2">
-                            <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
-                              <tab.icon className="w-7 h-7 text-white" />
+                          <div className="flex items-center gap-2 sm:gap-3 mb-1 sm:mb-2">
+                            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+                              <tab.icon className="w-5 h-5 sm:w-7 sm:h-7 text-white" />
                             </div>
-                            <h3 className="text-3xl font-bold">
+                            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold">
                               {tab.name}
                             </h3>
                           </div>
-                          <p className="text-white/90 text-lg">
+                          <p className="text-white/90 text-sm sm:text-base md:text-lg">
                             {tab.description}
                           </p>
                         </div>
@@ -690,21 +688,21 @@ export function ServicesPage({
                         )}
                       </div>
                     </CardHeader>
-                    <CardContent className="p-8">
+                    <CardContent className="p-4 sm:p-6 md:p-8">
                       {/* Pricing List */}
                       <div
-                        className={`space-y-3 mb-6 ${tab.pricing.length > 5 ? "grid md:grid-cols-2 gap-x-8 gap-y-3" : ""}`}
+                        className={`space-y-2 sm:space-y-3 mb-4 sm:mb-6 ${tab.pricing.length > 5 ? "grid md:grid-cols-2 gap-x-4 sm:gap-x-8 gap-y-2 sm:gap-y-3" : ""}`}
                       >
                         {tab.pricing.map((item, index) => (
                           <div
                             key={index}
-                            className={`flex justify-between items-center py-4 px-3 border-b border-gray-200 last:border-0 hover:bg-gray-50 rounded-lg transition-colors duration-200`}
+                            className={`flex justify-between items-center py-3 sm:py-4 px-2 sm:px-3 border-b border-gray-200 last:border-0 hover:bg-gray-50 rounded-lg transition-colors duration-200`}
                           >
-                            <span className="text-gray-900 font-medium">
+                            <span className="text-gray-900 font-medium text-sm sm:text-base">
                               {item.item}
                             </span>
                             <span
-                              className={`font-bold text-lg ${tab.iconColor}`}
+                              className={`font-bold text-base sm:text-lg ${tab.iconColor}`}
                             >
                               {item.price}
                             </span>
@@ -714,20 +712,20 @@ export function ServicesPage({
 
                       {/* Info Box */}
                       <div
-                        className={`p-5 ${tab.infoColor} rounded-xl border mb-6`}
+                        className={`p-3 sm:p-4 md:p-5 ${tab.infoColor} rounded-xl border mb-4 sm:mb-6`}
                       >
-                        <div className="flex items-start space-x-3">
+                        <div className="flex items-start space-x-2 sm:space-x-3">
                           <Info
-                            className={`w-6 h-6 ${tab.iconColor} flex-shrink-0 mt-0.5`}
+                            className={`w-5 h-5 sm:w-6 sm:h-6 ${tab.iconColor} flex-shrink-0 mt-0.5`}
                           />
-                          <p className="text-sm text-gray-700 leading-relaxed">
+                          <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
                             {tab.info}
                           </p>
                         </div>
                       </div>
 
                       {/* CTA Button */}
-                      <Button className="w-full bg-gradient-to-r from-accent to-accent/90 text-accent-foreground hover:from-accent/90 hover:to-accent/80 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-lg py-6">
+                      <Button className="w-full bg-gradient-to-r from-accent to-accent/90 text-accent-foreground hover:from-accent/90 hover:to-accent/80 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-sm sm:text-base md:text-lg py-4 sm:py-5 md:py-6">
                         Order {tab.name} Now
                       </Button>
                     </CardContent>
@@ -785,25 +783,25 @@ export function ServicesPage({
                     }}
                   >
                     <CardHeader
-                      className={`bg-gradient-to-br ${tab.headerColor} ${tab.id === 1 ? "text-gray-900" : "text-white"} rounded-t-lg p-6 relative overflow-hidden`}
+                      className={`bg-gradient-to-br ${tab.headerColor} ${tab.id === 1 ? "text-gray-900" : "text-white"} rounded-t-lg p-4 sm:p-6 relative overflow-hidden`}
                     >
                       <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       <div className="flex items-center justify-between relative z-10">
                         <div>
-                          <div className="flex items-center gap-3 mb-2">
+                          <div className="flex items-center gap-2 sm:gap-3 mb-1 sm:mb-2">
                             <div
-                              className={`w-12 h-12 ${tab.id === 1 ? "bg-accent/20" : "bg-white/20"} backdrop-blur-sm rounded-xl flex items-center justify-center`}
+                              className={`w-10 h-10 sm:w-12 sm:h-12 ${tab.id === 1 ? "bg-accent/20" : "bg-white/20"} backdrop-blur-sm rounded-xl flex items-center justify-center`}
                             >
                               <tab.icon
-                                className={`w-7 h-7 ${tab.id === 1 ? "text-accent" : "text-white"}`}
+                                className={`w-5 h-5 sm:w-7 sm:h-7 ${tab.id === 1 ? "text-accent" : "text-white"}`}
                               />
                             </div>
-                            <h3 className="text-3xl font-bold">
+                            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold">
                               {tab.name}
                             </h3>
                           </div>
                           <p
-                            className={`${tab.id === 1 ? "text-gray-600" : "text-white/90"} text-lg`}
+                            className={`${tab.id === 1 ? "text-gray-600" : "text-white/90"} text-sm sm:text-base md:text-lg`}
                           >
                             {tab.description}
                           </p>
@@ -817,23 +815,23 @@ export function ServicesPage({
                         )}
                       </div>
                     </CardHeader>
-                    <CardContent className="p-8">
+                    <CardContent className="p-4 sm:p-6 md:p-8">
                       {/* Pricing List */}
-                      <div className={`space-y-3 mb-6`}>
+                      <div className={`space-y-2 sm:space-y-3 mb-4 sm:mb-6`}>
                         {tab.isExpress ? (
-                          <div className="grid md:grid-cols-2 gap-6">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                             {tab.pricing.map((item, index) => (
                               <div
                                 key={index}
-                                className="p-6 bg-gradient-to-br from-yellow-50 to-orange-50 rounded-xl border-2 border-accent/20 hover:border-accent/40 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                                className="p-4 sm:p-5 md:p-6 bg-gradient-to-br from-yellow-50 to-orange-50 rounded-xl border-2 border-accent/20 hover:border-accent/40 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
                               >
-                                <h4 className="text-xl font-bold mb-2 text-gray-900">
+                                <h4 className="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-gray-900">
                                   {item.item}
                                 </h4>
-                                <p className="text-4xl font-bold text-accent mb-2">
+                                <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-accent mb-1 sm:mb-2">
                                   {item.price}
                                 </p>
-                                <p className="text-sm text-gray-600">
+                                <p className="text-xs sm:text-sm text-gray-600">
                                   Additional charge on base
                                   service price
                                 </p>
@@ -844,13 +842,13 @@ export function ServicesPage({
                           tab.pricing.map((item, index) => (
                             <div
                               key={index}
-                              className="flex justify-between items-center py-4 px-3 border-b border-gray-200 last:border-0 hover:bg-gray-50 rounded-lg transition-colors duration-200"
+                              className="flex justify-between items-center py-3 sm:py-4 px-2 sm:px-3 border-b border-gray-200 last:border-0 hover:bg-gray-50 rounded-lg transition-colors duration-200"
                             >
-                              <span className="text-gray-900 font-medium">
+                              <span className="text-gray-900 font-medium text-sm sm:text-base">
                                 {item.item}
                               </span>
                               <span
-                                className={`font-bold text-lg ${tab.iconColor}`}
+                                className={`font-bold text-base sm:text-lg ${tab.iconColor}`}
                               >
                                 {item.price}
                               </span>
@@ -861,20 +859,20 @@ export function ServicesPage({
 
                       {/* Info Box */}
                       <div
-                        className={`p-5 ${tab.infoColor} rounded-xl border mb-6`}
+                        className={`p-3 sm:p-4 md:p-5 ${tab.infoColor} rounded-xl border mb-4 sm:mb-6`}
                       >
-                        <div className="flex items-start space-x-3">
+                        <div className="flex items-start space-x-2 sm:space-x-3">
                           <Info
-                            className={`w-6 h-6 ${tab.iconColor} flex-shrink-0 mt-0.5`}
+                            className={`w-5 h-5 sm:w-6 sm:h-6 ${tab.iconColor} flex-shrink-0 mt-0.5`}
                           />
-                          <p className="text-sm text-gray-700 leading-relaxed">
+                          <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
                             {tab.info}
                           </p>
                         </div>
                       </div>
 
                       {/* CTA Button */}
-                      <Button className="w-full bg-gradient-to-r from-accent to-accent/90 text-accent-foreground hover:from-accent/90 hover:to-accent/80 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-lg py-6">
+                      <Button className="w-full bg-gradient-to-r from-accent to-accent/90 text-accent-foreground hover:from-accent/90 hover:to-accent/80 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-sm sm:text-base md:text-lg py-4 sm:py-5 md:py-6">
                         Order {tab.name} Now
                       </Button>
                     </CardContent>

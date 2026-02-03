@@ -14,11 +14,13 @@ import {
   TrendingDown,
   BarChart3,
   Headphones,
+  ChevronLeft,
 } from "lucide-react";
 import { Button } from "../components/ui/button";
 import { Card, CardContent } from "../components/ui/card";
 import { Badge } from "../components/ui/badge";
-import { useState } from "react";
+import { useState, useCallback, useEffect } from "react";
+import useEmblaCarousel from "embla-carousel-react";
 
 interface BusinessPageProps {
   onNavigate: (page: string) => void;
@@ -28,6 +30,27 @@ export function BusinessPage({
   onNavigate,
 }: BusinessPageProps) {
   const [activeIndustry, setActiveIndustry] = useState(0);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false });
+
+  const handlePrevious = useCallback(() => {
+    if (emblaApi && emblaApi.canScrollPrev()) {
+      emblaApi.scrollPrev();
+    }
+  }, [emblaApi]);
+
+  const handleNext = useCallback(() => {
+    if (emblaApi && emblaApi.canScrollNext()) {
+      emblaApi.scrollNext();
+    }
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (emblaApi) {
+      emblaApi.on("select", () => {
+        setActiveIndustry(emblaApi.selectedScrollSnap());
+      });
+    }
+  }, [emblaApi]);
 
   const industries = [
     {
@@ -60,7 +83,7 @@ export function BusinessPage({
     },
     {
       icon: Dumbbell,
-      title: "Spas, Gyms & Wellness",
+      title: "Spas, Gyms",
       description: "Towels, robes, workout gear",
       benefits: [
         "High-volume capacity",
@@ -191,7 +214,7 @@ export function BusinessPage({
 
           {/* Main Heading */}
           <div className="text-center mb-8 sm:mb-10 md:mb-12">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
               Commercial Laundry
               <br />
               <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
@@ -228,7 +251,7 @@ export function BusinessPage({
       </section>
 
       {/* Industry Tabs Section */}
-      <section className="py-12 sm:py-16 md:py-20 bg-white">
+      <section className="py-12 sm:py-16 md:py-20 pb-4 sm:pb-6 lg:pb-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-10 md:mb-12">
             <Badge className="mb-3 sm:mb-4 bg-primary/10 text-primary border-primary/20 text-xs sm:text-sm">
@@ -244,93 +267,150 @@ export function BusinessPage({
             </p>
           </div>
 
-          {/* Industry Tabs */}
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-6 sm:mb-8">
+          {/* Industry Tab Buttons - Desktop Only */}
+          <div className="hidden lg:flex items-center justify-center gap-4 mb-10">
             {industries.map((industry, index) => (
               <button
                 key={index}
-                onClick={() => setActiveIndustry(index)}
-                className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 md:px-6 py-2 sm:py-3 rounded-full font-semibold text-xs sm:text-sm md:text-base transition-all duration-300 ${
+                onClick={() => {
+                  if (emblaApi) {
+                    emblaApi.scrollTo(index);
+                  }
+                }}
+                className={`flex items-center gap-3 px-6 py-4 rounded-xl font-semibold transition-all duration-300 ${
                   activeIndustry === index
-                    ? "bg-gradient-to-r from-primary to-secondary text-white shadow-lg scale-105"
-                    : "bg-slate-100 text-gray-700 hover:bg-slate-200"
+                    ? `bg-gradient-to-r ${industry.color} text-white shadow-lg scale-105`
+                    : "bg-white text-gray-700 border-2 border-gray-200 hover:border-primary hover:shadow-md"
                 }`}
               >
-                <industry.icon className="w-4 h-4 sm:w-5 sm:h-5" />
-                <span className="whitespace-nowrap">
-                  {industry.title}
-                </span>
+                <industry.icon className="w-5 h-5" />
+                <span className="text-sm">{industry.title}</span>
               </button>
             ))}
           </div>
 
-          {/* Active Industry Content */}
-          <Card className="shadow-2xl border-2 border-gray-100 overflow-hidden">
-            <CardContent className="p-0">
-              <div className="grid lg:grid-cols-2">
-                {/* Left: Image */}
-                <div className="relative h-64 sm:h-72 md:h-80 lg:h-auto">
-                  <img
-                    src={industries[activeIndustry].image}
-                    alt={industries[activeIndustry].title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent"></div>
-                  <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6">
-                    <div
-                      className={`inline-flex items-center gap-2 sm:gap-3 bg-gradient-to-r ${industries[activeIndustry].color} text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-2 sm:mb-3 text-xs sm:text-sm md:text-base`}
-                    >
-                      {(() => {
-                        const Icon =
-                          industries[activeIndustry].icon;
-                        return (
-                          <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
-                        );
-                      })()}
-                      <span className="font-semibold">
-                        {industries[activeIndustry].title}
-                      </span>
-                    </div>
-                    <p className="text-white text-sm sm:text-base md:text-lg">
-                      {industries[activeIndustry].description}
-                    </p>
-                  </div>
-                </div>
+          {/* Active Industry Content with Swipe */}
+          <div className="relative">
+            {/* Left Arrow Button - Desktop Only */}
+            <button
+              onClick={handlePrevious}
+              disabled={activeIndustry === 0}
+              className={`hidden lg:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-lg items-center justify-center transition-all duration-300 ${
+                activeIndustry === 0
+                  ? "opacity-0 pointer-events-none"
+                  : "opacity-100 hover:bg-white hover:scale-110"
+              }`}
+              aria-label="Previous industry"
+            >
+              <ChevronLeft className="w-6 h-6 text-primary" />
+            </button>
 
-                {/* Right: Benefits */}
-                <div className="p-6 sm:p-8 lg:p-12 bg-slate-50">
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">
-                    What We Offer
-                  </h3>
-                  <div className="space-y-3 sm:space-y-4">
-                    {industries[activeIndustry].benefits.map(
-                      (benefit, idx) => (
-                        <div
-                          key={idx}
-                          className="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 bg-white rounded-lg sm:rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border-l-4 border-secondary"
-                        >
-                          <div className="w-5 h-5 sm:w-6 sm:h-6 bg-secondary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <CheckCircle2 className="w-3 h-3 sm:w-4 sm:h-4 text-secondary" />
+            {/* Right Arrow Button - Desktop Only */}
+            <button
+              onClick={handleNext}
+              disabled={activeIndustry === industries.length - 1}
+              className={`hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-lg items-center justify-center transition-all duration-300 ${
+                activeIndustry === industries.length - 1
+                  ? "opacity-0 pointer-events-none"
+                  : "opacity-100 hover:bg-white hover:scale-110"
+              }`}
+              aria-label="Next industry"
+            >
+              <ChevronRight className="w-6 h-6 text-primary" />
+            </button>
+
+            {/* Embla Carousel Container */}
+            <div className="overflow-hidden" ref={emblaRef}>
+              <div className="flex">
+                {industries.map((industry, index) => (
+                  <div key={index} className="flex-[0_0_100%] min-w-0">
+                    <Card className="shadow-2xl border-2 border-gray-100 overflow-hidden">
+                      <CardContent className="p-0">
+                        <div className="grid lg:grid-cols-2">
+                          {/* Left: Image */}
+                          <div className="relative h-64 sm:h-72 md:h-80 lg:h-auto">
+                            <img
+                              src={industry.image}
+                              alt={industry.title}
+                              className="w-full h-full object-cover"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent"></div>
+                            <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6">
+                              <div
+                                className={`inline-flex items-center gap-2 sm:gap-3 bg-gradient-to-r ${industry.color} text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-2 sm:mb-3 text-xs sm:text-sm md:text-base`}
+                              >
+                                <industry.icon className="w-4 h-4 sm:w-5 sm:h-5" />
+                                <span className="font-semibold">
+                                  {industry.title}
+                                </span>
+                              </div>
+                              <p className="text-white text-sm sm:text-base md:text-lg">
+                                {industry.description}
+                              </p>
+                            </div>
                           </div>
-                          <span className="text-gray-700 font-medium text-sm sm:text-base">
-                            {benefit}
-                          </span>
-                        </div>
-                      ),
-                    )}
-                  </div>
 
-                  <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t-2 border-gray-200">
-                    <Button className="w-full bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white shadow-lg text-xs sm:text-sm md:text-base">
-                      Get Custom Quote for{" "}
-                      {industries[activeIndustry].title}
-                      <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 ml-1.5 sm:ml-2" />
-                    </Button>
+                          {/* Right: Benefits */}
+                          <div className="p-6 sm:p-8 lg:p-12 bg-slate-50">
+                            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">
+                              What We Offer
+                            </h3>
+                            <div className="space-y-3 sm:space-y-4">
+                              {industry.benefits.map((benefit, idx) => (
+                                <div
+                                  key={idx}
+                                  className="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 bg-white rounded-lg sm:rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border-l-4 border-secondary"
+                                >
+                                  <div className="w-5 h-5 sm:w-6 sm:h-6 bg-secondary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <CheckCircle2 className="w-3 h-3 sm:w-4 sm:h-4 text-secondary" />
+                                  </div>
+                                  <span className="text-gray-700 font-medium text-sm sm:text-base">
+                                    {benefit}
+                                  </span>
+                                </div>
+                              ))}
+                            </div>
+
+                            <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t-2 border-gray-200">
+                              <Button className="w-full bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white shadow-lg text-xs sm:text-sm md:text-base">
+                                Get Custom Quote for {industry.title}
+                                <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 ml-1.5 sm:ml-2" />
+                              </Button>
+                            </div>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
                   </div>
-                </div>
+                ))}
               </div>
-            </CardContent>
-          </Card>
+            </div>
+
+            {/* Pagination Dots */}
+            <div className="flex items-center justify-center gap-2 sm:gap-3 mt-6 sm:mt-8">
+              {industries.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => {
+                    if (emblaApi) {
+                      emblaApi.scrollTo(index);
+                    }
+                  }}
+                  className={`transition-all duration-300 rounded-full ${
+                    activeIndustry === index
+                      ? "w-8 sm:w-10 md:w-12 h-2 sm:h-2.5 bg-gradient-to-r from-primary to-secondary shadow-lg"
+                      : "w-2 sm:w-2.5 h-2 sm:h-2.5 bg-gray-300 hover:bg-gray-400 hover:scale-125"
+                  }`}
+                  aria-label={`Go to ${industries[index].title}`}
+                />
+              ))}
+            </div>
+
+            {/* Progress Indicator Text */}
+            <p className="text-center mt-3 sm:mt-4 text-xs sm:text-sm text-gray-500 font-medium">
+              {activeIndustry + 1} / {industries.length} - Swipe or use arrows to navigate
+            </p>
+          </div>
         </div>
       </section>
 
