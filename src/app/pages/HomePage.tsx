@@ -385,7 +385,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Column - Content with Static Buttons & Badges */}
-            <div>
+            <div className="order-2 lg:order-1">
               {/* Animated Content Area - Badge, Title, Description */}
               <div className="relative min-h-[280px] md:min-h-[360px] mb-8">
                 {heroSlides.map((slide, index) => (
@@ -463,7 +463,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
             </div>
 
             {/* Right Column - Image with Fixed Aspect Ratio */}
-            <div className="relative">
+            <div className="relative order-1 lg:order-2">
               <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl relative">
                 {heroSlides.map((slide, index) => (
                   <img
@@ -597,7 +597,9 @@ export function HomePage({ onNavigate }: HomePageProps) {
                           </div>
                           <div className="flex items-center gap-2 text-xs text-gray-600">
                             <CheckCircle2 className="w-3.5 h-3.5 text-secondary flex-shrink-0" />
-                            <span>Pickup & delivery available</span>
+                            <span>
+                              Pickup & delivery available
+                            </span>
                           </div>
                         </div>
 
@@ -612,15 +614,15 @@ export function HomePage({ onNavigate }: HomePageProps) {
                             </p>
                           </div>
 
-                          {/* Learn More Arrow - appears on hover */}
-                          <div className="opacity-0 group-hover:opacity-100 transform translate-x-[-10px] group-hover:translate-x-0 transition-all duration-300">
+                          {/* Learn More Arrow - always visible on mobile/tablet, hover on desktop */}
+                          <div className="opacity-100 translate-x-0 lg:opacity-0 lg:translate-x-[-10px] lg:group-hover:opacity-100 lg:group-hover:translate-x-0 transition-all duration-300">
                             <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-primary" />
                           </div>
                         </div>
 
-                        {/* Quick Action Button - appears on hover */}
+                        {/* Quick Action Button - always visible on mobile/tablet, hover on desktop */}
                         <Button
-                          className="w-full mt-3 lg:mt-4 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 text-xs md:text-sm"
+                          className="w-full mt-3 lg:mt-4 opacity-100 translate-y-0 lg:opacity-0 lg:translate-y-2 lg:group-hover:opacity-100 lg:group-hover:translate-y-0 transition-all duration-300 text-xs md:text-sm"
                           variant={
                             isFeatured ? "default" : "outline"
                           }
@@ -770,24 +772,21 @@ export function HomePage({ onNavigate }: HomePageProps) {
                       </div>
 
                       {/* Card Container */}
-                      <div className="bg-white rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 shadow-md group-hover:shadow-xl transition-all duration-300 border border-gray-100 group-hover:border-secondary/30 min-h-[180px] sm:min-h-[200px] md:h-[280px] flex flex-col">
+                      <div className="bg-white rounded-xl sm:rounded-2xl p-2.5 sm:p-3 md:p-5 shadow-md group-hover:shadow-xl transition-all duration-300 border border-gray-100 group-hover:border-secondary/30">
                         {/* Icon */}
-                        <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-lg sm:rounded-xl flex items-center justify-center mx-auto mb-2 sm:mb-3 md:mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-lg sm:rounded-xl flex items-center justify-center mx-auto mb-1.5 sm:mb-2 md:mb-3 group-hover:scale-110 transition-transform duration-300">
                           <step.icon className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-primary group-hover:text-secondary transition-colors duration-300" />
                         </div>
 
                         {/* Title */}
-                        <h3 className="font-bold text-xs sm:text-sm md:text-lg mb-1.5 sm:mb-2 md:mb-3 text-gray-900 group-hover:text-primary transition-colors duration-300">
+                        <h3 className="font-bold text-xs sm:text-sm md:text-lg mb-1 sm:mb-1.5 md:mb-2 text-gray-900 group-hover:text-primary transition-colors duration-300">
                           {step.title}
                         </h3>
 
                         {/* Description */}
-                        <p className="text-[11px] sm:text-xs md:text-sm text-gray-600 leading-snug sm:leading-relaxed flex-1">
+                        <p className="text-[11px] sm:text-xs md:text-sm text-gray-600 leading-snug line-clamp-3">
                           {step.description}
                         </p>
-
-                        {/* Progress Indicator */}
-                        <div className="mt-2 sm:mt-3 md:mt-4 pt-2 sm:pt-3 md:pt-4 border-t border-gray-100"></div>
                       </div>
                     </div>
                   </div>
@@ -847,9 +846,11 @@ export function HomePage({ onNavigate }: HomePageProps) {
                         ? "opacity-100 bg-white/10 backdrop-blur-sm order-[-1] lg:order-none"
                         : "opacity-70 hover:opacity-90 bg-transparent order-1 lg:order-none"
                     }`}
-                    style={{ 
-                      transitionProperty: 'all, order, opacity, background-color, transform',
-                      transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
+                    style={{
+                      transitionProperty:
+                        "all, order, opacity, background-color, transform",
+                      transitionTimingFunction:
+                        "cubic-bezier(0.4, 0, 0.2, 1)",
                     }}
                   >
                     <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0 transition-transform duration-700 ease-out">
@@ -866,7 +867,8 @@ export function HomePage({ onNavigate }: HomePageProps) {
                             : "max-h-0 opacity-0 mt-0"
                         }`}
                         style={{
-                          transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
+                          transitionTimingFunction:
+                            "cubic-bezier(0.4, 0, 0.2, 1)",
                         }}
                       >
                         <p className="text-white/80 text-sm leading-relaxed">
@@ -915,35 +917,35 @@ export function HomePage({ onNavigate }: HomePageProps) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto">
             {/* Card 1 - Wash & Fold */}
             <Card className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-t-4 border-t-secondary relative overflow-hidden group">
-              <CardContent className="p-4 md:p-8 relative z-10">
-                {/* Mobile: Horizontal Layout */}
-                <div className="flex md:block gap-3 md:gap-0 mb-3 md:mb-0">
-                  <div className="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-secondary/20 to-secondary/10 rounded-lg md:rounded-2xl flex items-center justify-center md:mx-auto md:mb-4 group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
-                    <Sparkles className="w-7 h-7 md:w-8 md:h-8 text-secondary" />
+              <CardContent className="p-2.5 sm:p-3 md:p-5 relative z-10">
+                {/* Mobile: Horizontal Layout with Price on Right | Desktop: Vertical Layout */}
+                <div className="flex gap-3 md:block md:gap-0">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-gradient-to-br from-secondary/20 to-secondary/10 rounded-lg sm:rounded-xl flex items-center justify-center md:mx-auto md:mb-2 group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+                    <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-secondary" />
                   </div>
                   <div className="flex-1 md:text-center">
-                    <h3 className="text-base md:text-xl font-bold mb-1 md:mb-3 text-gray-900">
+                    <h3 className="text-xs sm:text-sm md:text-lg font-bold mb-1 md:mb-2 text-gray-900">
                       Wash & Fold
                     </h3>
-                    <div className="flex items-baseline gap-1 md:block">
-                      <div className="text-2xl md:text-4xl font-bold text-secondary">
-                        $1.00
+                    <div className="space-y-1 md:space-y-1.5 text-[11px] sm:text-xs md:text-sm text-gray-600 md:mb-3">
+                      <div className="flex items-center md:justify-center gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 md:w-4 md:h-4 text-secondary flex-shrink-0" />
+                        <span>Fresh & folded</span>
                       </div>
-                      <p className="text-xs md:text-sm text-gray-500 md:mb-4">
-                        per kg
-                      </p>
+                      <div className="flex items-center md:justify-center gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 md:w-4 md:h-4 text-secondary flex-shrink-0" />
+                        <span>24-hour service</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-
-                <div className="space-y-1.5 md:space-y-2 text-xs md:text-sm text-gray-600">
-                  <div className="flex items-center md:justify-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 md:w-4 md:h-4 text-secondary flex-shrink-0" />
-                    <span>Fresh & folded</span>
-                  </div>
-                  <div className="flex items-center md:justify-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 md:w-4 md:h-4 text-secondary flex-shrink-0" />
-                    <span>24-hour service</span>
+                  {/* Price on right for mobile, below for desktop */}
+                  <div className="flex flex-col items-end justify-center md:items-center flex-shrink-0">
+                    <div className="text-xl sm:text-2xl md:text-3xl font-bold text-secondary">
+                      $1.00
+                    </div>
+                    <p className="text-[11px] sm:text-xs md:text-sm text-gray-500">
+                      per kg
+                    </p>
                   </div>
                 </div>
               </CardContent>
@@ -957,39 +959,39 @@ export function HomePage({ onNavigate }: HomePageProps) {
                 MOST POPULAR
               </div>
 
-              <CardContent className="p-4 md:p-10 relative z-10">
-                {/* Mobile: Horizontal Layout */}
-                <div className="flex md:block gap-3 md:gap-0 mb-3 md:mb-0">
-                  <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-accent to-accent/80 rounded-lg md:rounded-2xl flex items-center justify-center md:mx-auto md:mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg flex-shrink-0">
-                    <Shirt className="w-8 h-8 md:w-10 md:h-10 text-white" />
+              <CardContent className="p-2.5 sm:p-3 md:p-5 relative z-10">
+                {/* Mobile: Horizontal Layout with Price on Right | Desktop: Vertical Layout */}
+                <div className="flex gap-3 md:block md:gap-0">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-gradient-to-br from-accent to-accent/80 rounded-lg sm:rounded-xl flex items-center justify-center md:mx-auto md:mb-2 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg flex-shrink-0">
+                    <Shirt className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-white" />
                   </div>
                   <div className="flex-1 md:text-center">
-                    <h3 className="text-lg md:text-2xl font-bold mb-1 md:mb-3 text-gray-900">
+                    <h3 className="text-xs sm:text-sm md:text-lg font-bold mb-1 md:mb-2 text-gray-900">
                       Wash & Press
                     </h3>
-                    <div className="flex items-baseline gap-1 md:block">
-                      <div className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-accent to-accent/80 bg-clip-text text-transparent">
-                        $0.75
+                    <div className="space-y-1 md:space-y-1.5 text-[11px] sm:text-xs md:text-sm text-gray-600 md:mb-3">
+                      <div className="flex items-center md:justify-center gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 md:w-4 md:h-4 text-accent flex-shrink-0" />
+                        <span>Professional press</span>
                       </div>
-                      <p className="text-xs md:text-sm text-gray-500 md:mb-4">
-                        per shirt
-                      </p>
+                      <div className="flex items-center md:justify-center gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 md:w-4 md:h-4 text-accent flex-shrink-0" />
+                        <span>Crisp & ready</span>
+                      </div>
+                      <div className="flex items-center md:justify-center gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 md:w-4 md:h-4 text-accent flex-shrink-0" />
+                        <span>Best value</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-
-                <div className="space-y-1.5 md:space-y-2 text-xs md:text-sm text-gray-600">
-                  <div className="flex items-center md:justify-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 md:w-4 md:h-4 text-accent flex-shrink-0" />
-                    <span>Professional press</span>
-                  </div>
-                  <div className="flex items-center md:justify-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 md:w-4 md:h-4 text-accent flex-shrink-0" />
-                    <span>Crisp & ready</span>
-                  </div>
-                  <div className="flex items-center md:justify-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 md:w-4 md:h-4 text-accent flex-shrink-0" />
-                    <span>Best value</span>
+                  {/* Price on right for mobile, below for desktop */}
+                  <div className="flex flex-col items-end justify-center md:items-center flex-shrink-0">
+                    <div className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-accent to-accent/80 bg-clip-text text-transparent">
+                      $0.75
+                    </div>
+                    <p className="text-[11px] sm:text-xs md:text-sm text-gray-500">
+                      per shirt
+                    </p>
                   </div>
                 </div>
               </CardContent>
@@ -1001,35 +1003,35 @@ export function HomePage({ onNavigate }: HomePageProps) {
 
             {/* Card 3 - Dry Clean */}
             <Card className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-t-4 border-t-primary relative overflow-hidden group">
-              <CardContent className="p-4 md:p-8 relative z-10">
-                {/* Mobile: Horizontal Layout */}
-                <div className="flex md:block gap-3 md:gap-0 mb-3 md:mb-0">
-                  <div className="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-primary/20 to-primary/10 rounded-lg md:rounded-2xl flex items-center justify-center md:mx-auto md:mb-4 group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
-                    <Wind className="w-7 h-7 md:w-8 md:h-8 text-primary" />
+              <CardContent className="p-2.5 sm:p-3 md:p-5 relative z-10">
+                {/* Mobile: Horizontal Layout with Price on Right | Desktop: Vertical Layout */}
+                <div className="flex gap-3 md:block md:gap-0">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-gradient-to-br from-primary/20 to-primary/10 rounded-lg sm:rounded-xl flex items-center justify-center md:mx-auto md:mb-2 group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+                    <Wind className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-primary" />
                   </div>
                   <div className="flex-1 md:text-center">
-                    <h3 className="text-base md:text-xl font-bold mb-1 md:mb-3 text-gray-900">
+                    <h3 className="text-xs sm:text-sm md:text-lg font-bold mb-1 md:mb-2 text-gray-900">
                       Dry Clean
                     </h3>
-                    <div className="flex items-baseline gap-1 md:block">
-                      <div className="text-2xl md:text-4xl font-bold text-primary">
-                        $10.00
+                    <div className="space-y-1 md:space-y-1.5 text-[11px] sm:text-xs md:text-sm text-gray-600 md:mb-3">
+                      <div className="flex items-center md:justify-center gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary flex-shrink-0" />
+                        <span>Delicate care</span>
                       </div>
-                      <p className="text-xs md:text-sm text-gray-500 md:mb-4">
-                        suit from
-                      </p>
+                      <div className="flex items-center md:justify-center gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary flex-shrink-0" />
+                        <span>Expert handling</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-
-                <div className="space-y-1.5 md:space-y-2 text-xs md:text-sm text-gray-600">
-                  <div className="flex items-center md:justify-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary flex-shrink-0" />
-                    <span>Delicate care</span>
-                  </div>
-                  <div className="flex items-center md:justify-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary flex-shrink-0" />
-                    <span>Expert handling</span>
+                  {/* Price on right for mobile, below for desktop */}
+                  <div className="flex flex-col items-end justify-center md:items-center flex-shrink-0">
+                    <div className="text-xl sm:text-2xl md:text-3xl font-bold text-primary">
+                      $10.00
+                    </div>
+                    <p className="text-[11px] sm:text-xs md:text-sm text-gray-500">
+                      suit from
+                    </p>
                   </div>
                 </div>
               </CardContent>
@@ -1442,52 +1444,60 @@ export function HomePage({ onNavigate }: HomePageProps) {
 
               {/* Premium Feature Cards */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4 hover:bg-white/15 hover:scale-105 transition-all duration-300 group">
-                  <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 group-hover:bg-white/30 transition-all duration-300">
+                <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4 hover:bg-white/15 hover:scale-105 transition-all duration-300 group flex gap-3 items-center">
+                  <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center group-hover:scale-110 group-hover:bg-white/30 transition-all duration-300 flex-shrink-0">
                     <Zap className="w-5 h-5 text-white" />
                   </div>
-                  <p className="font-semibold mb-1">
-                    High-Volume Capacity
-                  </p>
-                  <p className="text-sm text-white/70">
-                    Handle 1000+ items daily
-                  </p>
+                  <div>
+                    <p className="font-semibold mb-1">
+                      High-Volume Capacity
+                    </p>
+                    <p className="text-sm text-white/70">
+                      Handle 1000+ items daily
+                    </p>
+                  </div>
                 </div>
 
-                <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4 hover:bg-white/15 hover:scale-105 transition-all duration-300 group">
-                  <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 group-hover:bg-white/30 transition-all duration-300">
+                <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4 hover:bg-white/15 hover:scale-105 transition-all duration-300 group flex gap-3 items-center">
+                  <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center group-hover:scale-110 group-hover:bg-white/30 transition-all duration-300 flex-shrink-0">
                     <Award className="w-5 h-5 text-white" />
                   </div>
-                  <p className="font-semibold mb-1">
-                    Consistent Quality
-                  </p>
-                  <p className="text-sm text-white/70">
-                    Hotel-grade standards
-                  </p>
+                  <div>
+                    <p className="font-semibold mb-1">
+                      Consistent Quality
+                    </p>
+                    <p className="text-sm text-white/70">
+                      Hotel-grade standards
+                    </p>
+                  </div>
                 </div>
 
-                <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4 hover:bg-white/15 hover:scale-105 transition-all duration-300 group">
-                  <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 group-hover:bg-white/30 transition-all duration-300">
+                <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4 hover:bg-white/15 hover:scale-105 transition-all duration-300 group flex gap-3 items-center">
+                  <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center group-hover:scale-110 group-hover:bg-white/30 transition-all duration-300 flex-shrink-0">
                     <Clock className="w-5 h-5 text-white" />
                   </div>
-                  <p className="font-semibold mb-1">
-                    On-Time Delivery
-                  </p>
-                  <p className="text-sm text-white/70">
-                    99.8% reliability rate
-                  </p>
+                  <div>
+                    <p className="font-semibold mb-1">
+                      On-Time Delivery
+                    </p>
+                    <p className="text-sm text-white/70">
+                      99.8% reliability rate
+                    </p>
+                  </div>
                 </div>
 
-                <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4 hover:bg-white/15 hover:scale-105 transition-all duration-300 group">
-                  <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 group-hover:bg-white/30 transition-all duration-300">
+                <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4 hover:bg-white/15 hover:scale-105 transition-all duration-300 group flex gap-3 items-center">
+                  <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center group-hover:scale-110 group-hover:bg-white/30 transition-all duration-300 flex-shrink-0">
                     <ShieldCheck className="w-5 h-5 text-white" />
                   </div>
-                  <p className="font-semibold mb-1">
-                    Custom Agreements
-                  </p>
-                  <p className="text-sm text-white/70">
-                    Flexible partnership terms
-                  </p>
+                  <div>
+                    <p className="font-semibold mb-1">
+                      Custom Agreements
+                    </p>
+                    <p className="text-sm text-white/70">
+                      Flexible partnership terms
+                    </p>
+                  </div>
                 </div>
               </div>
 
@@ -1608,52 +1618,60 @@ export function HomePage({ onNavigate }: HomePageProps) {
 
           {/* Feature Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
-            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:bg-white/15 transition-all duration-300 group">
-              <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:bg-white/15 transition-all duration-300 group flex md:block gap-3 items-center">
+              <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-0 md:mb-3 group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
                 <Zap className="w-6 h-6 text-white" />
               </div>
-              <h4 className="font-semibold text-white mb-1">
-                Proven System
-              </h4>
-              <p className="text-sm text-white/70">
-                Turnkey operations & training
-              </p>
+              <div>
+                <h4 className="font-semibold text-white mb-1">
+                  Proven System
+                </h4>
+                <p className="text-sm text-white/70">
+                  Turnkey operations & training
+                </p>
+              </div>
             </div>
 
-            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:bg-white/15 transition-all duration-300 group">
-              <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:bg-white/15 transition-all duration-300 group flex md:block gap-3 items-center">
+              <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-0 md:mb-3 group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
                 <Award className="w-6 h-6 text-white" />
               </div>
-              <h4 className="font-semibold text-white mb-1">
-                Brand Power
-              </h4>
-              <p className="text-sm text-white/70">
-                Recognized & trusted name
-              </p>
+              <div>
+                <h4 className="font-semibold text-white mb-1">
+                  Brand Power
+                </h4>
+                <p className="text-sm text-white/70">
+                  Recognized & trusted name
+                </p>
+              </div>
             </div>
 
-            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:bg-white/15 transition-all duration-300 group">
-              <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:bg-white/15 transition-all duration-300 group flex md:block gap-3 items-center">
+              <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-0 md:mb-3 group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
                 <ShieldCheck className="w-6 h-6 text-white" />
               </div>
-              <h4 className="font-semibold text-white mb-1">
-                Full Support
-              </h4>
-              <p className="text-sm text-white/70">
-                Marketing & tech included
-              </p>
+              <div>
+                <h4 className="font-semibold text-white mb-1">
+                  Full Support
+                </h4>
+                <p className="text-sm text-white/70">
+                  Marketing & tech included
+                </p>
+              </div>
             </div>
 
-            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:bg-white/15 transition-all duration-300 group">
-              <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:bg-white/15 transition-all duration-300 group flex md:block gap-3 items-center">
+              <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-0 md:mb-3 group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
                 <Sparkles className="w-6 h-6 text-white" />
               </div>
-              <h4 className="font-semibold text-white mb-1">
-                Low Investment
-              </h4>
-              <p className="text-sm text-white/70">
-                Affordable startup costs
-              </p>
+              <div>
+                <h4 className="font-semibold text-white mb-1">
+                  Low Investment
+                </h4>
+                <p className="text-sm text-white/70">
+                  Affordable startup costs
+                </p>
+              </div>
             </div>
           </div>
 
