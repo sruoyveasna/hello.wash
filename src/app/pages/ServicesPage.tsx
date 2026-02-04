@@ -152,7 +152,7 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
         "Reliable daily/weekly pickups",
         "Quality guarantees",
       ],
-      image: "/service/b2b.jpg",
+      image: "/service/btob.jpg",
     },
   ];
 
