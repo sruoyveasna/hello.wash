@@ -384,12 +384,14 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
           <div className="grid lg:grid-cols-2 gap-8">
             <Card className="bg-gradient-to-br from-primary/10 to-primary/5 border-2 border-primary/20 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
               <CardContent className="p-6 sm:p-8 lg:p-10 relative z-10">
-                <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
-                  <Target className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
+                <div className="flex gap-3 sm:gap-4 items-start mb-4 sm:mb-6">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-primary to-primary/80 rounded-xl sm:rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg flex-shrink-0">
+                    <Target className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
+                  </div>
+                  <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900">
+                    Our Mission
+                  </h2>
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-gray-900">
-                  Our Mission
-                </h2>
                 <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
                   To make premium laundry and dry cleaning
                   services accessible to everyone in Cambodia
@@ -404,12 +406,14 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
 
             <Card className="bg-gradient-to-br from-secondary/10 to-secondary/5 border-2 border-secondary/20 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
               <CardContent className="p-6 sm:p-8 lg:p-10 relative z-10">
-                <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-secondary to-secondary/80 rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
-                  <Eye className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
+                <div className="flex gap-3 sm:gap-4 items-start mb-4 sm:mb-6">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-secondary to-secondary/80 rounded-xl sm:rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg flex-shrink-0">
+                    <Eye className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
+                  </div>
+                  <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900">
+                    Our Vision
+                  </h2>
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-gray-900">
-                  Our Vision
-                </h2>
                 <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
                   To become Cambodia's most trusted laundry
                   brand, known for innovation, quality, and

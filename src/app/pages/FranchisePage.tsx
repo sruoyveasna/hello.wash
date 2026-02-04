@@ -334,14 +334,18 @@ export function FranchisePage({
                 }}
               >
                 <CardContent className="p-3 sm:p-4 md:p-5 lg:p-6 relative z-10">
-                  <div
-                    className={`w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-gradient-to-br ${item.color} rounded-lg sm:rounded-xl flex items-center justify-center mb-2 sm:mb-3 md:mb-4 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}
-                  >
-                    <item.icon className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-white" />
+                  <div className="flex sm:block items-start gap-2 sm:gap-0">
+                    <div
+                      className={`w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-gradient-to-br ${item.color} rounded-lg sm:rounded-xl flex items-center justify-center mb-0 sm:mb-2 md:mb-3 lg:mb-4 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 flex-shrink-0`}
+                    >
+                      <item.icon className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-white" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-xs sm:text-sm md:text-lg lg:text-xl font-bold mb-1.5 sm:mb-2 md:mb-3 text-gray-900">
+                        {item.title}
+                      </h3>
+                    </div>
                   </div>
-                  <h3 className="text-xs sm:text-sm md:text-lg lg:text-xl font-bold mb-1.5 sm:mb-2 md:mb-3 text-gray-900">
-                    {item.title}
-                  </h3>
                   <p className="text-[11px] sm:text-xs md:text-sm lg:text-base text-gray-600 leading-snug sm:leading-relaxed">
                     {item.description}
                   </p>

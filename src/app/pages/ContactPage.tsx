@@ -230,14 +230,18 @@ export function ContactPage({ onNavigate }: ContactPageProps) {
                 style={{ animation: `fadeInUp 0.6s ease-out ${index * 0.1}s backwards` }}
               >
                 <CardContent className="p-3 sm:p-4 md:p-5 lg:p-6 xl:p-8 text-center relative z-10">
-                  <div className={`w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-gradient-to-br ${method.color} rounded-lg sm:rounded-xl md:rounded-2xl flex items-center justify-center mx-auto mb-2 sm:mb-3 md:mb-4 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}>
-                    <method.icon className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 text-white" />
+                  <div className="flex sm:block items-start gap-2 sm:gap-0 mb-2 sm:mb-0">
+                    <div className={`w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-gradient-to-br ${method.color} rounded-lg sm:rounded-xl md:rounded-2xl flex items-center justify-center sm:mx-auto mb-0 sm:mb-2 md:mb-3 lg:mb-4 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 flex-shrink-0`}>
+                      <method.icon className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 text-white" />
+                    </div>
+                    <div className="flex-1 min-w-0 text-left sm:text-center">
+                      <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold mb-0.5 sm:mb-1 md:mb-1.5 lg:mb-2 text-gray-900">{method.title}</h3>
+                      <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-primary mb-0 sm:mb-1 md:mb-1.5 lg:mb-2">
+                        {method.info}
+                      </p>
+                    </div>
                   </div>
-                  <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold mb-1 sm:mb-1.5 md:mb-2 text-gray-900">{method.title}</h3>
-                  <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-primary mb-1 sm:mb-1.5 md:mb-2">
-                    {method.info}
-                  </p>
-                  <p className="text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4 md:mb-5 lg:mb-6">
+                  <p className="text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4 md:mb-5 lg:mb-6 text-left sm:text-center">
                     {method.description}
                   </p>
                   <Button

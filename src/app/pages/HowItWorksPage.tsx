@@ -443,7 +443,7 @@ export function HowItWorksPage({
       </section>
 
       {/* Main Process */}
-      <section className="py-20 bg-white relative overflow-hidden">
+      <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white relative overflow-hidden">
         {/* Decorative Elements */}
         <div className="absolute top-20 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 left-0 w-64 h-64 bg-secondary/5 rounded-full blur-3xl"></div>
@@ -527,7 +527,7 @@ export function HowItWorksPage({
           {/* Step Content Card */}
           <Card className="max-w-5xl mx-auto shadow-2xl border-2 border-gray-100 hover:shadow-3xl transition-all duration-300 group relative overflow-hidden">
             <CardContent className="p-3 sm:p-6 md:p-8 lg:p-12 relative z-10">
-              <div className="grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 items-center">
+              <div className="grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 items-center min-h-[400px] sm:min-h-[450px] md:min-h-[500px]">
                 {/* Left: Details */}
                 <div>
                   <div className="flex items-center space-x-2 sm:space-x-3 md:space-x-4 mb-3 sm:mb-4 md:mb-6">
@@ -676,63 +676,63 @@ export function HowItWorksPage({
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left Content */}
             <div>
-              <Badge className="mb-4 bg-gradient-to-r from-primary to-secondary text-white border-none shadow-lg">
+              <Badge className="mb-3 sm:mb-4 bg-gradient-to-r from-primary to-secondary text-white border-none shadow-lg text-xs sm:text-sm">
                 🗺️ Service Areas
               </Badge>
-              <h2 className="text-5xl font-bold text-gray-900 mb-6 leading-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
                 Pickup & Delivery
                 <br />
                 <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                   Coverage
                 </span>
               </h2>
-              <p className="text-lg text-gray-600 mb-8">
+              <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-6 sm:mb-8">
                 We serve all major districts in Phnom Penh with
                 convenient pickup and delivery. Minimum 3kg order
                 for wash & fold service.
               </p>
 
               {/* Feature Cards */}
-              <div className="space-y-4 mb-8">
-                <div className="flex items-start gap-4 p-5 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-secondary group">
-                  <div className="w-14 h-14 bg-gradient-to-br from-secondary to-secondary/70 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                    <CheckCircle2 className="w-7 h-7 text-white" />
+              <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
+                <div className="flex items-start gap-3 sm:gap-4 p-4 sm:p-5 bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-secondary group">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-secondary to-secondary/70 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                    <CheckCircle2 className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-lg text-gray-900 mb-1">
+                    <h4 className="font-bold text-sm sm:text-base md:text-lg text-gray-900 mb-1">
                       All Major Districts Covered
                     </h4>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-xs sm:text-sm text-gray-600">
                       BKK1, Riverside, Russian Market,
                       Chamkarmon, Daun Penh & more
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 p-5 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-primary group">
-                  <div className="w-14 h-14 bg-gradient-to-br from-primary to-primary/70 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                    <Truck className="w-7 h-7 text-white" />
+                <div className="flex items-start gap-3 sm:gap-4 p-4 sm:p-5 bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-primary group">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-primary to-primary/70 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                    <Truck className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-lg text-gray-900 mb-1">
+                    <h4 className="font-bold text-sm sm:text-base md:text-lg text-gray-900 mb-1">
                       Reliable Pickup & Delivery
                     </h4>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-xs sm:text-sm text-gray-600">
                       Convenient door-to-door service with
                       flexible scheduling
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 p-5 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-accent group">
-                  <div className="w-14 h-14 bg-gradient-to-br from-accent to-accent/70 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                    <Clock className="w-7 h-7 text-white" />
+                <div className="flex items-start gap-3 sm:gap-4 p-4 sm:p-5 bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-accent group">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-accent to-accent/70 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                    <Clock className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-lg text-gray-900 mb-1">
+                    <h4 className="font-bold text-sm sm:text-base md:text-lg text-gray-900 mb-1">
                       Flexible Scheduling
                     </h4>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-xs sm:text-sm text-gray-600">
                       7 days a week, choose your preferred time
                       slot
                     </p>
@@ -965,11 +965,11 @@ export function HowItWorksPage({
             {/* Right Side - Phone Mockup Placeholder */}
             <div className="relative">
               <div className="relative z-10 bg-gradient-to-br from-gray-800 to-gray-900 rounded-[3rem] p-3 shadow-2xl border-8 border-gray-700 transform hover:scale-105 transition-all duration-300 max-h-[90vh] md:max-h-none">
-                <div className="bg-gray-900 rounded-[2.5rem] overflow-hidden aspect-[9/19]">
+                <div className="bg-gray-900 rounded-[2.5rem] overflow-hidden aspect-[9/19] max-h-[calc(90vh-3rem)] md:max-h-none">
                   {/* Phone Screen Content */}
-                  <div className="p-4 sm:p-6 h-full bg-gradient-to-b from-gray-800 to-gray-900">
+                  <div className="p-3 sm:p-4 md:p-6 h-full bg-gradient-to-b from-gray-800 to-gray-900 overflow-y-auto">
                     {/* Status Bar */}
-                    <div className="flex justify-between items-center mb-4 sm:mb-8 text-[10px] sm:text-xs text-gray-400">
+                    <div className="flex justify-between items-center mb-3 sm:mb-4 md:mb-8 text-[10px] sm:text-xs text-gray-400">
                       <span>9:41 AM</span>
                       <div className="flex gap-1">
                         <div className="w-1 h-2 sm:h-3 bg-gray-600 rounded"></div>
@@ -980,53 +980,53 @@ export function HowItWorksPage({
                     </div>
 
                     {/* Header */}
-                    <h3 className="text-white font-bold text-base sm:text-xl mb-4 sm:mb-6">
+                    <h3 className="text-white font-bold text-sm sm:text-base md:text-xl mb-3 sm:mb-4 md:mb-6">
                       Track Order
                     </h3>
 
                     {/* Order Status Steps */}
-                    <div className="space-y-3 sm:space-y-6">
-                      <div className="flex items-center gap-3 sm:gap-4">
-                        <div className="w-9 h-9 sm:w-12 sm:h-12 bg-secondary rounded-full flex items-center justify-center flex-shrink-0">
-                          <CheckCircle2 className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
+                    <div className="space-y-2 sm:space-y-3 md:space-y-6">
+                      <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
+                        <div className="w-8 h-8 sm:w-9 sm:h-9 md:w-12 md:h-12 bg-secondary rounded-full flex items-center justify-center flex-shrink-0">
+                          <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />
                         </div>
                         <div className="flex-1">
-                          <div className="text-xs sm:text-sm font-semibold text-white">
+                          <div className="text-[11px] sm:text-xs md:text-sm font-semibold text-white">
                             Order Confirmed
                           </div>
-                          <div className="text-[10px] sm:text-xs text-gray-500">
+                          <div className="text-[9px] sm:text-[10px] md:text-xs text-gray-500">
                             Today, 9:00 AM
                           </div>
                         </div>
                       </div>
 
-                      <div className="ml-4 sm:ml-6 w-0.5 h-4 sm:h-8 bg-secondary"></div>
+                      <div className="ml-4 sm:ml-4.5 md:ml-6 w-0.5 h-3 sm:h-4 md:h-8 bg-secondary"></div>
 
-                      <div className="flex items-center gap-3 sm:gap-4">
-                        <div className="w-9 h-9 sm:w-12 sm:h-12 bg-secondary rounded-full flex items-center justify-center flex-shrink-0 animate-pulse">
-                          <Truck className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
+                      <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
+                        <div className="w-8 h-8 sm:w-9 sm:h-9 md:w-12 md:h-12 bg-secondary rounded-full flex items-center justify-center flex-shrink-0 animate-pulse">
+                          <Truck className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />
                         </div>
                         <div className="flex-1">
-                          <div className="text-xs sm:text-sm font-semibold text-white">
+                          <div className="text-[11px] sm:text-xs md:text-sm font-semibold text-white">
                             Driver En Route
                           </div>
-                          <div className="text-[10px] sm:text-xs text-secondary">
+                          <div className="text-[9px] sm:text-[10px] md:text-xs text-secondary">
                             Arriving in 5 mins
                           </div>
                         </div>
                       </div>
 
-                      <div className="ml-4 sm:ml-6 w-0.5 h-4 sm:h-8 bg-gray-700"></div>
+                      <div className="ml-4 sm:ml-4.5 md:ml-6 w-0.5 h-3 sm:h-4 md:h-8 bg-gray-700"></div>
 
-                      <div className="flex items-center gap-3 sm:gap-4 opacity-50">
-                        <div className="w-9 h-9 sm:w-12 sm:h-12 bg-gray-700 rounded-full flex items-center justify-center flex-shrink-0">
-                          <Sparkles className="w-4 h-4 sm:w-6 sm:h-6 text-gray-500" />
+                      <div className="flex items-center gap-2 sm:gap-3 md:gap-4 opacity-50">
+                        <div className="w-8 h-8 sm:w-9 sm:h-9 md:w-12 md:h-12 bg-gray-700 rounded-full flex items-center justify-center flex-shrink-0">
+                          <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-gray-500" />
                         </div>
                         <div className="flex-1">
-                          <div className="text-xs sm:text-sm font-semibold text-gray-500">
+                          <div className="text-[11px] sm:text-xs md:text-sm font-semibold text-gray-500">
                             Processing
                           </div>
-                          <div className="text-[10px] sm:text-xs text-gray-600">
+                          <div className="text-[9px] sm:text-[10px] md:text-xs text-gray-600">
                             Pending
                           </div>
                         </div>
@@ -1176,40 +1176,46 @@ export function HowItWorksPage({
 
             {/* Feature Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 md:gap-6 max-w-4xl mx-auto">
-              <div className="bg-white/10 backdrop-blur-md border-2 border-white/20 rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 text-center hover:bg-white/20 hover:scale-105 transition-all duration-300 group">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-xl group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
+              <div className="bg-white/10 backdrop-blur-md border-2 border-white/20 rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 hover:bg-white/20 hover:scale-105 transition-all duration-300 group flex sm:block items-start sm:text-center gap-3 sm:gap-0">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-accent rounded-full flex items-center justify-center sm:mx-auto mb-0 sm:mb-3 md:mb-4 shadow-xl group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 flex-shrink-0">
                   <Clock className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />
                 </div>
-                <h4 className="font-bold text-white text-base sm:text-lg mb-1 sm:mb-2">
-                  Fast Turnaround
-                </h4>
-                <p className="text-white/80 text-xs sm:text-sm">
-                  24-48 hour standard service
-                </p>
+                <div className="flex-1 min-w-0">
+                  <h4 className="font-bold text-white text-sm sm:text-base md:text-lg mb-1 sm:mb-2">
+                    Fast Turnaround
+                  </h4>
+                  <p className="text-white/80 text-xs sm:text-sm">
+                    24-48 hour standard service
+                  </p>
+                </div>
               </div>
 
-              <div className="bg-white/10 backdrop-blur-md border-2 border-white/20 rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 text-center hover:bg-white/20 hover:scale-105 transition-all duration-300 group">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-xl group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
+              <div className="bg-white/10 backdrop-blur-md border-2 border-white/20 rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 hover:bg-white/20 hover:scale-105 transition-all duration-300 group flex sm:block items-start sm:text-center gap-3 sm:gap-0">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-accent rounded-full flex items-center justify-center sm:mx-auto mb-0 sm:mb-3 md:mb-4 shadow-xl group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 flex-shrink-0">
                   <Truck className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />
                 </div>
-                <h4 className="font-bold text-white text-base sm:text-lg mb-1 sm:mb-2">
-                  Affordable Delivery
-                </h4>
-                <p className="text-white/80 text-xs sm:text-sm">
-                  Convenient pickup & delivery service
-                </p>
+                <div className="flex-1 min-w-0">
+                  <h4 className="font-bold text-white text-sm sm:text-base md:text-lg mb-1 sm:mb-2">
+                    Affordable Delivery
+                  </h4>
+                  <p className="text-white/80 text-xs sm:text-sm">
+                    Convenient pickup & delivery service
+                  </p>
+                </div>
               </div>
 
-              <div className="bg-white/10 backdrop-blur-md border-2 border-white/20 rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 text-center hover:bg-white/20 hover:scale-105 transition-all duration-300 group">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-xl group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
+              <div className="bg-white/10 backdrop-blur-md border-2 border-white/20 rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 hover:bg-white/20 hover:scale-105 transition-all duration-300 group flex sm:block items-start sm:text-center gap-3 sm:gap-0">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-accent rounded-full flex items-center justify-center sm:mx-auto mb-0 sm:mb-3 md:mb-4 shadow-xl group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 flex-shrink-0">
                   <Award className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />
                 </div>
-                <h4 className="font-bold text-white text-base sm:text-lg mb-1 sm:mb-2">
-                  100% Guaranteed
-                </h4>
-                <p className="text-white/80 text-xs sm:text-sm">
-                  Premium quality or your money back
-                </p>
+                <div className="flex-1 min-w-0">
+                  <h4 className="font-bold text-white text-sm sm:text-base md:text-lg mb-1 sm:mb-2">
+                    100% Guaranteed
+                  </h4>
+                  <p className="text-white/80 text-xs sm:text-sm">
+                    Premium quality or your money back
+                  </p>
+                </div>
               </div>
             </div>
           </div>
