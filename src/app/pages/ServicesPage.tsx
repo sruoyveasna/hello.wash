@@ -40,7 +40,7 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
         "Eco-friendly detergents available",
         "Minimum 3kg order",
       ],
-      image: "/public/service/washfold.jpg",
+      image: "/service/washfold.jpg",
     },
     {
       icon: Shirt,
@@ -56,7 +56,7 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
         "Stain treatment included",
         "Quality inspection before pressing",
       ],
-      image: "/public/service/washpress.jpg",
+      image: "/service/washpress.jpg",
     },
     {
       icon: Wind,
@@ -72,7 +72,7 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
         "Stain removal specialists",
         "Garment protection and inspection",
       ],
-      image: "/public/service/dryclean.webp",
+      image: "/service/dryclean.webp",
     },
     {
       icon: Leaf,
@@ -88,7 +88,7 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
         "Effective for most 'dry clean only' items",
         "No harsh chemicals",
       ],
-      image: "/public/service/wetclean.jpg",
+      image: "/service/wetclean.jpg",
     },
     {
       icon: Package,
@@ -104,7 +104,7 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
         "Cushion covers",
         "Special handling for large items",
       ],
-      image: "/public/service/specialtyitems.jpg",
+      image: "/service/specialtyitems.jpg",
     },
     {
       icon: Truck,
@@ -120,7 +120,7 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
         "SMS notifications",
         "Contactless service available",
       ],
-      image: "/public/service/pickup-delivery.jpg",
+      image: "/service/pickup-delivery.jpg",
     },
     {
       icon: Zap,
@@ -136,7 +136,7 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
         "Perfect for emergencies",
         "Available for most services",
       ],
-      image: "/public/service/express-service.png",
+      image: "/service/express-service.png",
     },
     {
       icon: Building2,
@@ -152,7 +152,7 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
         "Reliable daily/weekly pickups",
         "Quality guarantees",
       ],
-      image: "/public/service/b2b.jpg",
+      image: "/service/b2b.jpg",
     },
   ];
 
