@@ -682,37 +682,49 @@ export function FranchisePage({
           {/* Feature Highlights */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-10">
             <div className="p-4 sm:p-5 md:p-6 bg-white/10 backdrop-blur-sm rounded-lg sm:rounded-xl border border-white/20 hover:bg-white/15 hover:scale-105 transition-all duration-300 group">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                <FileText className="w-5 h-5 sm:w-6 sm:h-6" />
+              <div className="flex sm:block items-start gap-2 sm:gap-0">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 rounded-full flex items-center justify-center sm:mx-auto mb-0 sm:mb-2 md:mb-3 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 flex-shrink-0">
+                  <FileText className="w-5 h-5 sm:w-6 sm:h-6" />
+                </div>
+                <div className="flex-1 min-w-0 text-left sm:text-center">
+                  <h4 className="font-bold mb-1 sm:mb-2 text-sm sm:text-base">
+                    Franchise Kit
+                  </h4>
+                  <p className="text-xs sm:text-sm text-white/80">
+                    Detailed business plan & financials
+                  </p>
+                </div>
               </div>
-              <h4 className="font-bold mb-1 sm:mb-2 text-sm sm:text-base">
-                Franchise Kit
-              </h4>
-              <p className="text-xs sm:text-sm text-white/80">
-                Detailed business plan & financials
-              </p>
             </div>
             <div className="p-4 sm:p-5 md:p-6 bg-white/10 backdrop-blur-sm rounded-lg sm:rounded-xl border border-white/20 hover:bg-white/15 hover:scale-105 transition-all duration-300 group">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                <Calendar className="w-5 h-5 sm:w-6 sm:h-6" />
+              <div className="flex sm:block items-start gap-2 sm:gap-0">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 rounded-full flex items-center justify-center sm:mx-auto mb-0 sm:mb-2 md:mb-3 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 flex-shrink-0">
+                  <Calendar className="w-5 h-5 sm:w-6 sm:h-6" />
+                </div>
+                <div className="flex-1 min-w-0 text-left sm:text-center">
+                  <h4 className="font-bold mb-1 sm:mb-2 text-sm sm:text-base">
+                    Free Consultation
+                  </h4>
+                  <p className="text-xs sm:text-sm text-white/80">
+                    Meet with our franchise team
+                  </p>
+                </div>
               </div>
-              <h4 className="font-bold mb-1 sm:mb-2 text-sm sm:text-base">
-                Free Consultation
-              </h4>
-              <p className="text-xs sm:text-sm text-white/80">
-                Meet with our franchise team
-              </p>
             </div>
             <div className="p-4 sm:p-5 md:p-6 bg-white/10 backdrop-blur-sm rounded-lg sm:rounded-xl border border-white/20 hover:bg-white/15 hover:scale-105 transition-all duration-300 group">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                <Headphones className="w-5 h-5 sm:w-6 sm:h-6" />
+              <div className="flex sm:block items-start gap-2 sm:gap-0">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 rounded-full flex items-center justify-center sm:mx-auto mb-0 sm:mb-2 md:mb-3 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 flex-shrink-0">
+                  <Headphones className="w-5 h-5 sm:w-6 sm:h-6" />
+                </div>
+                <div className="flex-1 min-w-0 text-left sm:text-center">
+                  <h4 className="font-bold mb-1 sm:mb-2 text-sm sm:text-base">
+                    24/7 Support
+                  </h4>
+                  <p className="text-xs sm:text-sm text-white/80">
+                    Dedicated franchise advisor
+                  </p>
+                </div>
               </div>
-              <h4 className="font-bold mb-1 sm:mb-2 text-sm sm:text-base">
-                24/7 Support
-              </h4>
-              <p className="text-xs sm:text-sm text-white/80">
-                Dedicated franchise advisor
-              </p>
             </div>
           </div>
 
