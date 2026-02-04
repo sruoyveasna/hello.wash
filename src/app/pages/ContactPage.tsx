@@ -535,13 +535,13 @@ export function ContactPage({ onNavigate }: ContactPageProps) {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12">
-            <Badge className="mb-4 bg-secondary/10 text-secondary border-secondary/20">
+            <Badge className="mb-3 sm:mb-4 bg-secondary/10 text-secondary border-secondary/20 text-xs sm:text-sm">
               ✉️ Message Us
             </Badge>
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
               Get in Touch
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600">
               Have questions? Send us a message and we'll respond within 24 hours
             </p>
           </div>
@@ -733,11 +733,11 @@ export function ContactPage({ onNavigate }: ContactPageProps) {
         <div className="absolute top-0 left-1/3 w-64 h-64 bg-accent/5 rounded-full blur-3xl"></div>
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <Badge className="mb-4 bg-accent/10 text-accent border-accent/20">
+          <Badge className="mb-3 sm:mb-4 bg-accent/10 text-accent border-accent/20 text-xs sm:text-sm">
             🔗 Quick Links
           </Badge>
-          <h2 className="text-3xl font-bold mb-6 text-gray-900">Quick Answers</h2>
-          <p className="text-lg text-gray-600 mb-8">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-gray-900">Quick Answers</h2>
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8">
             Looking for quick information? Check out our most popular pages:
           </p>
           <div className="flex flex-wrap justify-center gap-4">
@@ -792,14 +792,14 @@ export function ContactPage({ onNavigate }: ContactPageProps) {
             <Sparkles className="w-10 h-10" />
           </div>
 
-          <Badge className="mb-6 bg-white/20 text-white border-white/30 backdrop-blur-sm">
+          <Badge className="mb-4 sm:mb-6 bg-white/20 text-white border-white/30 backdrop-blur-sm text-xs sm:text-sm">
             🚀 Get Started Today
           </Badge>
 
-          <h2 className="text-4xl font-bold mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
             Ready to Try HelloWash?
           </h2>
-          <p className="text-xl mb-10 text-white/90 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-8 sm:mb-10 text-white/90 max-w-2xl mx-auto">
             Don't wait - schedule your first pickup today and experience
             premium laundry service.
           </p>
