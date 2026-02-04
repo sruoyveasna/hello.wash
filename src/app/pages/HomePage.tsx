@@ -173,21 +173,21 @@ export function HomePage({ onNavigate }: HomePageProps) {
       title: "Garment Tagging & Sorting",
       description:
         "Every item is individually tagged and sorted by fabric type and color for optimal care.",
-      image: "/home/industrialclean.webp",
+      image: "/home/taggingsorting.webp",
     },
     {
       icon: Sparkles,
       title: "Fabric-Specific Programs",
       description:
         "Specialized washing cycles and temperatures for different fabric types ensure the best results.",
-      image: "/home/industrialclean.webp",
+      image: "/home/fabricspacial.webp",
     },
     {
       icon: ShieldCheck,
       title: "Final Inspection & Packaging",
       description:
         "Quality check and careful packaging before delivery to ensure perfection.",
-      image: "/home/doortodoor.webp",
+      image: "/home/inspectionpacking.png",
     },
     // {
     //   icon: Leaf,
